@@ -44,36 +44,111 @@ General requirements. Please be aware that a set of requirements especific for e
 
 ### Session 1: Fundamentals and control with ROS
   This session covers the basics of ROS.
+
+  #### Topics:
+ * Who are we? Introduction to MCR2.
+ * Introduction to Robotics
+ * Introduction to ROS
+ * Overview of the ROS Environment
+ * Topics, Messages, ROS.
+ * Launch Files
+
+
+  #### Activities
+
+   * ##### Activity 1: ROS Nodes
+     Talker and Listener
+
+  #### Mini-challenge 1
+    
+   * Generate a node that sends a signal and another to process the signal.
+       
+  
+  **Requirements:** 
+  
+  Computer with access to Zoom, Ubuntu 22.04 and ROS Humble Installed (Full installation).
+
+### Session 2: ROS Practicalities
+  This session covers the more in depth topic of ROS.
+  #### Topics:
+ * ROS Namespaces
+ * ROS Parameters
+ * ROS Parameter Callbacks
+ * ROS Services
+
+
+  #### Activities
+
+   * ##### Activity 1: Namespaces
+        Generate Namespaces for individual nodes
+   * ##### Activity 1.1: Namespaces2
+        Generate Namespaces for groups of nodes
+   * ##### Activity 2: Parameters (Launch File)
+        Define Parameters for a node and set them using the launch file.
+   * ##### Activity 2.1: Parameter Callbacks
+        Use callbacks to change parameters at runtime.
+   * ##### Activity 2.2: Parameter Files (Optional)
+        Use YAML Files to define parameters.
+   * ##### Activity 3: Services (Optional)
+        Use Services to enable/disable nodes.
+
+  #### Mini-challenge 2
+    
+   * Make a PID Controller for a simulated motor.
+
+  **Requirements:** 
+
+  Computer with access to Zoom, Ubuntu 22.04 and ROS Humble Installed (Full installation).
+
+  ### Session 3: Micro ROS
+  This session covers the more in depth topic of ROS.
+  #### Topics:
+ * Micro ROS Basics
+ * QoS
+ * Executors
+
+  #### Activities
+
+   * ##### Activity 1: TBD
+
+  #### Mini-challenge 3
+    
+   * TBD.
+        
+  **Requirements:** 
+  
+
+
+  Computer with access to Zoom, Ubuntu 22.04 and ROS Humble Installed (Full installation).
+
+
+  ### Session 4: ROS Data Acquisition and Control
+  This session covers control and dataacquisition modes in ROS
   #### Topics:
  * TBD
 
   #### Activities
 
-   * ##### Activity 1: ROS Nodes
-     Generate a node that sends a signal to another node to process it.
-   
-   * ##### Activity 2: ROS Practicalities
-     Different ROS activities to undersatnd parameters, namespaces and custom messages.
+   * ##### Activity 1: TBD
+
+  #### Mini-challenge 4
     
-  
+   * TBD.
+        
   **Requirements:** 
   
-  Computer with access to Zoom, Ubuntu 22.04 and ROS Humble Installed (Full installation).
-
-### Session 2: ROS2 Practicalities
-  This session covers the basics of ROS visualisation.
-  #### Topics:
-*	TBD
-
-  #### Activities
-
-   * ##### Activity 1: RVIZ Markers
-        TBD
-
-  **Requirements:** 
 
   Computer with access to Zoom, Ubuntu 22.04 and ROS Humble Installed (Full installation).
 
+ ### Session 5: Final Challenge
+
+  #### Final Challenge
+    
+   * Final Challenge Presentation
+        
+  **Requirements:** 
+
+  Computer with access to Zoom, Ubuntu 22.04 and ROS Humble Installed (Full installation).
   ---
 ## Declaration
 
