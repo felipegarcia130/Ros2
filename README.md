@@ -29,7 +29,7 @@
 ## Live sessions (Recordings)
 
 TBD
-     
+    
 ## General Requirements
 General requirements. Please be aware that a set of requirements especific for each session will be shown in each session subsection (Some items may be repeated).
 * Computer with access to Zoom (online classes).
