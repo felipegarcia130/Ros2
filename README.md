@@ -1,14 +1,17 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/ManchesterRoboticsLtd/TE3001B_Intelligent_Robotics_Implementation_2025/blob/main/Misc/Logos/Logotipo%20Vertical%20Bco_Transparente.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/ManchesterRoboticsLtd/TE3001B_Intelligent_Robotics_Implementation_2025/blob/main/Misc/Logos/Logotipo%20Vertical%20Azul%20transparente.png">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/ManchesterRoboticsLtd/MR3001B_Design_and_Development_of_Robots_I/blob/main/Misc/Logos/Logotipo%20Vertical%20Bco_Transparente.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/ManchesterRoboticsLtd/MR3001B_Design_and_Development_of_Robots_I/blob/main/Misc/Logos/Logotipo%20Vertical%20Azul%20transparente.png">
   <img alt="Shows ITESM logo in black or white." width="160" align="right">
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/ManchesterRoboticsLtd/TE3001B_Intelligent_Robotics_Implementation_2025/blob/main/Misc/Logos/MCR2_Logo_White.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/ManchesterRoboticsLtd/TE3001B_Intelligent_Robotics_Implementation_2025/blob/main/Misc/Logos/MCR2_Logo_Black.png">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/ManchesterRoboticsLtd/MR3001B_Design_and_Development_of_Robots_I/blob/main/Misc/Logos/MCR2_Logo_White.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/ManchesterRoboticsLtd/MR3001B_Design_and_Development_of_Robots_I/blob/main/Misc/Logos/MCR2_Logo_Black.png">
   <img alt="Shows MCR2 logo in black or white." width="150" align="right">
 </picture>
+
+
+---
 
 ---
 # TE3001B: Intelligent Robotics Implementation 2025
@@ -31,7 +34,7 @@
 TBD
     
 ## General Requirements
-General requirements. Please be aware that a set of requirements especific for each session will be shown in each session subsection (Some items may be repeated).
+General requirements. Please be aware that a set of requirements specific to each session will be shown in each session subsection (Some items may be repeated).
 * Computer with access to Zoom (online classes).
 * Computer with Ubuntu 22.04 and ROS2 Humble.
 * Knowledge of ROS.
