@@ -17,9 +17,10 @@
 # TE3001B: Intelligent Robotics Implementation 2025
 
   ## Introduction
-* This course, developed by Manchester Robotics Ltd. (MCR2), aims to provide professors with different training sessions to build their insight on using ROS to control and simulate a robotic manipulator. 
-* This course is divided into five sessions, carefully designed for the user to learn about the different ROS tools to simulate and control a robotic manipulator. 
-* This course introduces different challenges to make the professors aware of the problems faced while implementing advanced intelligent algorithms in robotics.
+* This course, developed by Manchester Robotics ltd. (MCR2), introduces the basic concepts and general knowledge of the ROS environment to the user.
+* This course is divided into five sessions, carefully designed for the user to learn about the different aspects of ROS2, from topics and messages to control and simulation using ROS2.
+* This course will be based on challenges to make the student aware of ROS basics and ROS communication with hardware.
+
 
    
 ## General Information
@@ -37,11 +38,16 @@ TBD
 General requirements. Please be aware that a set of requirements specific to each session will be shown in each session subsection (Some items may be repeated).
 * Computer with access to Zoom (online classes).
 * Computer with Ubuntu 22.04 and ROS2 Humble.
+* MCR2 Virtual Machine
 * Knowledge of ROS.
 * Knowledge of Windows. 
 * Basic knowledge of Ubuntu (recommended).
 * Basic understanding of robotics (recommended).
-* Access to a DC Motor, ESP32 and H-bridge.
+* Access to the required hardware (Hardware section).
+
+## Required Hardware (Session 3 onwards)
+![image](https://github.com/user-attachments/assets/12766789-6044-4b48-bdf6-49275491b61c)
+
 
 ## Sessions
 
@@ -60,7 +66,13 @@ General requirements. Please be aware that a set of requirements specific to eac
   #### Activities
 
    * ##### Activity 1: ROS Nodes
-     Talker and Listener
+     Talker
+
+   * ##### Activity 2: ROS Nodes
+     Listener
+
+   * ##### Activity 3: ROS Nodes
+     Launch Files
 
   #### Mini-challenge 1
     
@@ -69,10 +81,10 @@ General requirements. Please be aware that a set of requirements specific to eac
   
   **Requirements:** 
   
-  Computer with access to Zoom, Ubuntu 22.04 and ROS Humble Installed (Full installation).
+  Computer with access to Zoom, Ubuntu 22.04 and ROS Humble Installed (Full installation) or  MCR2 Virtual Machine.
 
 ### Session 2: ROS Practicalities
-  This session covers the more in depth topic of ROS.
+  This session covers the topic of ROS in more depth.
   #### Topics:
  * ROS Namespaces
  * ROS Parameters
@@ -101,46 +113,63 @@ General requirements. Please be aware that a set of requirements specific to eac
 
   **Requirements:** 
 
-  Computer with access to Zoom, Ubuntu 22.04 and ROS Humble Installed (Full installation).
+  Computer with access to Zoom, Ubuntu 22.04 and ROS Humble Installed (Full installation) or  MCR2 Virtual Machine.
 
   ### Session 3: Micro ROS
-  This session covers the more in depth topic of ROS.
+  This session covers micro-ros.
   #### Topics:
  * Micro ROS Basics
- * QoS
+ * Micro ROS Program Structure
  * Executors
+ * Micro ros transports (Optional)
+ * WiFi (Optional)
+
 
   #### Activities
 
-   * ##### Activity 1: TBD
-
+   * ##### Activity 1: Publisher
+     Make a simple uros Publisher
+   * ##### Activity 1.2: Publisher w/recconection
+     Make a simple publisher w/recconection
+   * ##### Activity 2: Subscriber
+     Make a simple Subscriber
+   * ##### Activity 2.2: Subscriber w/recconection
+     Make a simple Subscriber w/recconection
+   * ##### Activity 3: Large Project Handling (Optional)
+     Publisher/Subscriber with interrupts
+   * ##### Activity 4: WiFi Connection (Optional)
+     WiFi AP with ESP32
+    
   #### Mini-challenge 3
     
-   * TBD.
+   * Motor Speed regulation using ROS.
         
   **Requirements:** 
   
-
-
-  Computer with access to Zoom, Ubuntu 22.04 and ROS Humble Installed (Full installation).
+  Computer with access to Zoom, Ubuntu 22.04 and ROS Humble Installed (Full installation), Hardware in Hardware section.
 
 
   ### Session 4: ROS Data Acquisition and Control
   This session covers control and dataacquisition modes in ROS
   #### Topics:
- * TBD
+ * Encoder Basic Theory
+ * Interrupts (Optional)
+ * Control Theory
+ * QoS
+ * Real-time (Optional)
+
 
   #### Activities
 
-   * ##### Activity 1: TBD
+   * ##### Activity 1: QoS
+   QoS Connections
 
   #### Mini-challenge 4
     
-   * TBD.
+   * Acquire data from the encoders using ESP32.
         
   **Requirements:** 
   
-
   Computer with access to Zoom, Ubuntu 22.04 and ROS Humble Installed (Full installation).
 
  ### Session 5: Final Challenge
@@ -155,7 +184,7 @@ General requirements. Please be aware that a set of requirements specific to eac
   ---
 ## Declaration
 
-At Manchester Robotics, we firmly believe that innovation is driven by change, and so we have made our mission to change the access to educational robotics. We hope you enjoy our products and support this revolution.
+At Manchester Robotics, we firmly believe that innovation is driven by change, so we have made it our mission to change access to educational robotics. We hope you enjoy our products and support this revolution.
 
 So, from the team at MCR2, we would like to say 
 
