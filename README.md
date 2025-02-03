@@ -181,6 +181,48 @@ General requirements. Please be aware that a set of requirements specific to eac
   **Requirements:** 
 
   Computer with access to Zoom, Ubuntu 22.04 and ROS Humble Installed (Full installation).
+
+
+  ## Useful Links: 
+  #### Ubuntu
+   * [Ubuntu Installation](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview)
+  
+  #### ROS
+   * [ROS Installation](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+   * [ROS book](https://github.com/fmrico/book_ros2)
+   * [ROS Packages](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html)
+   * [ROS Workspace](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)
+   * [ROS Nodes](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.html)
+   * [Topics](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html)
+   * [Publisher and Subscribers](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html)
+   * [ROS Launch](https://docs.ros.org/en/humble/How-To-Guides/Launch-file-different-formats.html)
+   * [ROS Custom Interfaces](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Custom-ROS2-Interfaces.html)
+   * [Parameters](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.html)
+
+  #### Embedded Systems
+   * [micro-ROS](https://micro.ros.org/)
+   * [micro-ROS-Arduino](https://github.com/micro-ROS/micro_ros_arduino)
+   * [DC Motor](https://en.wikipedia.org/wiki/DC_motor)
+   * [H-Bridge](https://www.youtube.com/watch?v=fVgnUWIWzZ8&ab_channel=NorthwesternRobotics)
+   * [Rotary Encoder](https://en.wikipedia.org/wiki/Rotary_encoder)
+   * [Rotary Encoder](https://www.encoder.com/article-what-is-an-encoder)
+   * [ESP32 Tutorials](https://randomnerdtutorials.com/projects-esp32/)
+   * [Interrupts on ESP32](https://lastminuteengineers.com/handling-esp32-gpio-interrupts-tutorial/)
+  
+  #### Virtual Machine: 
+   * [VM Ware](https://softwareupdate.vmware.com/cds/vmw-desktop/player/17.6.2/24409262/)
+   * [ROS Preinstalled VM](https://manchesterrobotics-my.sharepoint.com/:u:/g/personal/mario_mtz_manchester-robotics_com/EWcRInLzqDZNpxqWlH3X0sQBGXgbTSj9Qp1VX7O_sGy4zQ?e=sIq2xd)
+
+  #### Resources
+   * [Introduction to Autonomous Mobile Robots](https://ieeexplore.ieee.org/book/6267528)
+   * [PID Control](https://ieeexplore.ieee.org/document/1453566)
+   * [Closed Loop Control](https://www.electronics-tutorials.ws/systems/closed-loop-system.html)
+   * [Nonlineraities and robustness](https://ieeexplore.ieee.org/document/8603065)
+   * [Open loop control Tutorial](https://www.electronics-tutorials.ws/systems/open-loop-system.html)
+   * [Open Loop Control Tutorial](https://www.electronicshub.org/open-loop-system/)
+   * [Open Loop Control Book](https://eng.libretexts.org/Bookshelves/Electrical_Engineering/Signal_Processing_and_Modeling/Introduction_to_Linear_Time-Invariant_Dynamic_Systems_for_Students_of_Engineering_(Hallauer)/14%3A_Introduction_to_Feedback_Control/14.02%3A_Definitions_and_Examples_of_Open-Loop_Control_Systems)
+     
+  
   ---
 ## Declaration
 
