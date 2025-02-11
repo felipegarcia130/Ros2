@@ -29,10 +29,18 @@
 *	Duration 5 Weeks.
 *	Starting: 10th Feb
 
+## Zoom:
+  
+Topic: TE3001B
+
+Meeting ID: 822 7617 8487
+
+Passcode: MCR2
+
 
 ## Live sessions (Recordings)
 
-TBD
+[Live Sessions](https://tecmx-my.sharepoint.com/:f:/g/personal/mario_mtz_tec_mx/EhCa4Xcl0mtKjYVZPuGub4wBkMZm6sfaVHgHwIeCvjNVbw?e=7hjzql )
     
 ## General Requirements
 General requirements. Please be aware that a set of requirements specific to each session will be shown in each session subsection (Some items may be repeated).
