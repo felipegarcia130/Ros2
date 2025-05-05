@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<robot name="my_robot">
+  <!-- Base del robot -->
+  <link name="base_link">
+    <inertial>
+      <mass value="1.0"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <box size="0.32 0.16 0.12"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0.1 0 0.085"/>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.32 0.16 0.12"/>
+      </geometry>
+      <origin xyz="0.1 0 0.085"/>
+    </collision>
+  </link>
+
+  <!-- Rueda izquierda -->
+  <link name="lwheel">
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <cylinder length="0.008" radius="0.046"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.008" radius="0.046"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+  </link>
+
+  <!-- Joint de la rueda izquierda -->
+  <joint name="base_to_lwheel" type="continuous">
+    <axis xyz="0 1 0"/>
+    <parent link="base_link"/>
+    <child link="lwheel"/>
+    <origin xyz="0 0.115 0.046" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Rueda derecha -->
+  <link name="rwheel">
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <cylinder length="0.008" radius="0.046"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.008" radius="0.046"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+  </link>
+
+  <!-- Joint de la rueda derecha -->
+  <joint name="base_to_rwheel" type="continuous">
+    <axis xyz="0 1 0"/>
+    <parent link="base_link"/>
+    <child link="rwheel"/>
+    <origin xyz="0 -0.115 0.046" rpy="0 0 0"/>
+  </joint>
+</robot>
+<?xml version="1.0"?>
+<robot name="my_robot">
+  <!-- Base del robot -->
+  <link name="base_link">
+    <inertial>
+      <mass value="1.0"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <box size="0.32 0.16 0.12"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0.1 0 0.085"/>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.32 0.16 0.12"/>
+      </geometry>
+      <origin xyz="0.1 0 0.085"/>
+    </collision>
+  </link>
+
+  <!-- Rueda izquierda -->
+  <link name="lwheel">
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <cylinder length="0.008" radius="0.046"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.008" radius="0.046"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+  </link>
+
+  <!-- Joint de la rueda izquierda -->
+  <joint name="base_to_lwheel" type="continuous">
+    <axis xyz="0 1 0"/>
+    <parent link="base_link"/>
+    <child link="lwheel"/>
+    <origin xyz="0 0.115 0.046" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Rueda derecha -->
+  <link name="rwheel">
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <cylinder length="0.008" radius="0.046"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.008" radius="0.046"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+  </link>
+
+  <!-- Joint de la rueda derecha -->
+  <joint name="base_to_rwheel" type="continuous">
+    <axis xyz="0 1 0"/>
+    <parent link="base_link"/>
+    <child link="rwheel"/>
+    <origin xyz="0 -0.115 0.046" rpy="0 0 0"/>
+  </joint>
+</robot>
