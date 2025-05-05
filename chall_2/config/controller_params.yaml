@@ -1,0 +1,5 @@
+ctrl:
+  ros__parameters:
+    Kp: 2.0  # Control rápido sin ser agresivo
+    Ki: 0.05 # Baja integral para evitar acumulaciones grandes
+    Kd: 0.07  # Suaviza la respuesta evitando picos
