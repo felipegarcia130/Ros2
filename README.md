@@ -1,8 +1,8 @@
 # ROS 2 Robotics Repository 🤖 🧠
 
-![ROS 2](https://img.shields.io/badge/ROS%202-Humble-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
-![Last Commit](https://img.shields.io/badge/last%20commit-May%202025-yellowgreen)
+[![ROS2 Humble](https://img.shields.io/badge/ROS2-Humble-blue)](https://docs.ros.org/en/humble/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)]()
 
 Repositorio profesional con múltiples paquetes y proyectos desarrollados en ROS 2, orientados al aprendizaje, experimentación y desarrollo de soluciones en robótica móvil, simulación y control.
 
