@@ -50,12 +50,7 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
-import rclpy
 from rclpy.node import Node
-from turtlesim.msg import Pose
-from geometry_msgs.msg import TransformStamped
-import tf2_ros
-import math
 
 class TurtlePoseTransformNode(Node):
     def __init__(self):

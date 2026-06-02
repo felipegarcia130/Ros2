@@ -187,8 +187,10 @@ class AStarNode(Node):
                                 sr, sc = nr, nc
                                 found = True
                                 break
-                    if found: break
-                if found: break
+                    if found: 
+                        break
+                if found: 
+                    break
 
         path_cells = astar(self.grid_inflated, (sr, sc), (gr, gc))
 

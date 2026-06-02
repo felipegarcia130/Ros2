@@ -10,7 +10,6 @@ import math
 from matplotlib.figure import Figure
 import matplotlib.patches as patches
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-from builtin_interfaces.msg import Time
 
 # Parámetros físicos del robot
 wheel_radius = 0.033  # radio de las ruedas

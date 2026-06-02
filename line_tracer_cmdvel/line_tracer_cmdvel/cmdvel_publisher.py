@@ -1,7 +1,6 @@
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
-import time
 import math
 
 class CmdVelPublisher(Node):
