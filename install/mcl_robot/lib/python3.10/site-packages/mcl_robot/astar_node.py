@@ -40,8 +40,10 @@ def heuristic(a, b):
 
 def angle_diff(a, b):
     d = a - b
-    while d >  math.pi: d -= 2 * math.pi
-    while d < -math.pi: d += 2 * math.pi
+    while d > math.pi:
+        d -= 2 * math.pi
+    while d < -math.pi:
+        d += 2 * math.pi
     return d
 
 def euler_from_quaternion(q):
@@ -187,8 +189,10 @@ class AStarNode(Node):
                                 sr, sc = nr, nc
                                 found = True
                                 break
-                    if found: break
-                if found: break
+                    if found: 
+                        break
+                if found: 
+                    break
 
         path_cells = astar(self.grid_inflated, (sr, sc), (gr, gc))
 

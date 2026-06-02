@@ -236,7 +236,7 @@ from sensor_msgs.msg import LaserScan
 from nav_msgs.msg import Odometry, OccupancyGrid
 from geometry_msgs.msg import PoseStamped
 
-N          = 1000   # partículas totales — suficiente para localización global
+N          = 500   # partículas totales — suficiente para localización global
 N_RANDOM   = 50    # 5% aleatorias en cada ciclo (kidnapped robot)
 N_LOCAL    = N - N_RANDOM
 
@@ -247,7 +247,7 @@ MAP_Y_MAX  =  6.0
 RESOLUTION =  0.05
 
 
-def ray_casting_vectorized(particulas, grid, angles, max_range, step=1):
+def ray_casting_vectorized(particulas, grid, angles, max_range, step=2):
     H, W = grid.shape
 
     filas  = particulas[:, 0]
@@ -404,19 +404,22 @@ class MCLNode(Node):
         self.particulas[:, 1]  = np.clip(self.particulas[:, 1], 0, self.grid.shape[1] - 1)
 
     # ── Sensor model + resampleo ──────────────────────────────────────────────
+    # ── Sensor model + resampleo ──────────────────────────────────────────────
     def scan_callback(self, msg):
         ranges_raw = np.array(msg.ranges, dtype=np.float32)
         ranges_raw = np.where(np.isfinite(ranges_raw), ranges_raw, msg.range_max)
-        ranges = np.clip(ranges_raw, msg.range_min, msg.range_max)[::2]
+        ranges = np.clip(ranges_raw, msg.range_min, msg.range_max)[::3]
 
         if self.angles_cache is None:
             self.angles_cache = np.arange(
                 msg.angle_min, msg.angle_max, msg.angle_increment, dtype=np.float32
-            )[::2]
+            )[::3]
             self.max_range_px = int(msg.range_max / self.res)
             self.get_logger().info(
                 f'Scan: {len(self.angles_cache)} rayos, max_range={self.max_range_px} px'
             )
+
+        n_particulas = len(self.particulas)
 
         sims = ray_casting_vectorized(
             self.particulas, self.grid, self.angles_cache, self.max_range_px, step=2
@@ -425,11 +428,10 @@ class MCLNode(Node):
         sims_metros = sims * self.res
         sigma = 0.5
         diff  = sims_metros - ranges
-        
 
         # Peso mayor a rayos cortos (más informativos)
-        ray_weights = 1.0 / (ranges + 0.5)  # rayos cortos pesan más
-        ray_weights /= ray_weights.mean()   # normaliza
+        ray_weights = 1.0 / (ranges + 0.5)
+        ray_weights /= ray_weights.mean()
 
         pesos = np.exp(-0.5 * np.mean((diff ** 2) * ray_weights, axis=1) / sigma ** 2)
         peso_sum = pesos.sum()
@@ -440,30 +442,39 @@ class MCLNode(Node):
             return
 
         pesos /= peso_sum
+        pesos  = pesos / pesos.sum()  # segunda normalización por seguridad
 
-        # Normalización extra para evitar error de numpy
-        pesos = pesos / pesos.sum() 
+        # ── Convergencia adaptativa ───────────────────────────────────────────
+        entropia     = -np.sum(pesos * np.log(pesos + 1e-10))
+        entropia_max = np.log(n_particulas)
+        convergencia = 1.0 - (entropia / entropia_max)
 
-        # ── Resampleo: N_LOCAL locales + N_RANDOM uniformes ───────────────────
-        indices          = np.random.choice(N, N_LOCAL, p=pesos)
+        if convergencia > 0.7:
+            n_usar = 300
+        elif convergencia > 0.4:
+            n_usar = 600
+        else:
+            n_usar = N
+
+        n_random = max(10, int(n_usar * 0.05))
+        n_local  = n_usar - n_random
+
+        # ── Resampleo: n_local locales + n_random uniformes ───────────────────
+        indices          = np.random.choice(n_particulas, n_local, p=pesos)
         particulas_local = self.particulas[indices]
 
-        # ruido post-resampleo
-        particulas_local[:, 0] += np.random.randn(N_LOCAL).astype(np.float32) * 0.3
-        particulas_local[:, 1] += np.random.randn(N_LOCAL).astype(np.float32) * 0.3
-        particulas_local[:, 2] += np.random.randn(N_LOCAL).astype(np.float32) * 0.01
+        particulas_local[:, 0] += np.random.randn(n_local).astype(np.float32) * 0.3
+        particulas_local[:, 1] += np.random.randn(n_local).astype(np.float32) * 0.3
+        particulas_local[:, 2] += np.random.randn(n_local).astype(np.float32) * 0.01
         particulas_local[:, 0]  = np.clip(particulas_local[:, 0], 0, self.grid.shape[0] - 1)
         particulas_local[:, 1]  = np.clip(particulas_local[:, 1], 0, self.grid.shape[1] - 1)
 
-        # partículas aleatorias globales (kidnapped robot)
-        particulas_rand = self._sample_uniform(N_RANDOM)
+        particulas_rand = self._sample_uniform(n_random)
 
         self.particulas = np.vstack([particulas_local, particulas_rand]).astype(np.float32)
 
         # ── Publicar pose ─────────────────────────────────────────────────────
         rx, ry, ryaw = self.get_pose()
-
-        #ryaw = math.atan2(math.sin(ryaw - math.pi/2), math.cos(ryaw - math.pi/2))
 
         pose_msg = PoseStamped()
         pose_msg.header.stamp    = self.get_clock().now().to_msg()
@@ -476,14 +487,18 @@ class MCLNode(Node):
 
         self.get_logger().info(
             f'Pose: x={rx:.3f} y={ry:.3f} | '
-            f'Partículas fila={self.particulas[:,0].mean():.0f} col={self.particulas[:,1].mean():.0f}'
+            f'n={len(self.particulas)} conv={convergencia:.2f} | '
+            f'fila={self.particulas[:,0].mean():.0f} col={self.particulas[:,1].mean():.0f}'
         )
 
         # ── Visualización ─────────────────────────────────────────────────────
         mapa_vis = cv2.cvtColor((self.grid * 255).astype('uint8'), cv2.COLOR_GRAY2BGR)
         pts = self.particulas[:, [1, 0]].astype(np.int32)
-        for pt in pts:
-            cv2.circle(mapa_vis, tuple(pt), 2, (0, 0, 255), -1)
+        pts_clip = pts[
+            (pts[:, 0] >= 0) & (pts[:, 0] < self.grid.shape[1]) &
+            (pts[:, 1] >= 0) & (pts[:, 1] < self.grid.shape[0])
+        ]
+        mapa_vis[pts_clip[:, 1], pts_clip[:, 0]] = [0, 0, 255]
         mapa_vis = cv2.resize(mapa_vis, (540, 540), interpolation=cv2.INTER_NEAREST)
         cv2.imshow('MCL', mapa_vis)
         cv2.waitKey(1)

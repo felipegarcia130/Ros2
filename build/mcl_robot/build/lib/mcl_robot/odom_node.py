@@ -23,7 +23,6 @@ from std_msgs.msg import Float32
 from geometry_msgs.msg import TransformStamped, Quaternion
 from nav_msgs.msg import Odometry
 from tf2_ros import TransformBroadcaster
-from rclpy.qos import QoSProfile, ReliabilityPolicy
 
 # ── Parámetros del robot ──────────────────────────────────────────────────────
 WHEEL_RADIUS = 0.05    # [m]   radio de cada rueda
