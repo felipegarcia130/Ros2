@@ -1,0 +1,6 @@
+[lint]
+exclude = [
+    "Week 1/",
+    "turtle_tf2_broadcaster/turtle_tf2_broadcaster/turtle_pose_transform.py",
+    "gazebo_puzzlebot_sim/gazebo_puzzlebot_sim/sim_node.py",
+]

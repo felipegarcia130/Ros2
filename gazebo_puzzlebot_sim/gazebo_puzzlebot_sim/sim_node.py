@@ -58,7 +58,6 @@ class GazeboSimNode(Node):
         dx = end[0] - start[0]
         dy = end[1] - start[1]
         distance = math.hypot(dx, dy)
-        angle = math.atan2(dy, dx)
 
         speed = distance / self.move_duration
 
