@@ -236,8 +236,8 @@ from sensor_msgs.msg import LaserScan
 from nav_msgs.msg import Odometry, OccupancyGrid
 from geometry_msgs.msg import PoseStamped
 
-N          = 500   # partículas totales — suficiente para localización global
-N_RANDOM   = 25    # 5% aleatorias en cada ciclo (kidnapped robot)
+N          = 1000   # partículas totales — suficiente para localización global
+N_RANDOM   = 50    # 5% aleatorias en cada ciclo (kidnapped robot)
 N_LOCAL    = N - N_RANDOM
 
 MAP_X_MIN  = -4.0
@@ -247,7 +247,7 @@ MAP_Y_MAX  =  6.0
 RESOLUTION =  0.05
 
 
-def ray_casting_vectorized(particulas, grid, angles, max_range, step=2):
+def ray_casting_vectorized(particulas, grid, angles, max_range, step=1):
     H, W = grid.shape
 
     filas  = particulas[:, 0]
@@ -329,9 +329,28 @@ class MCLNode(Node):
 
     # ── Conversión píxel → mundo ──────────────────────────────────────────────
     def get_pose(self):
-        mean_fila = self.particulas[:, 0].mean()
-        mean_col  = self.particulas[:, 1].mean()
-        mean_yaw  = self.particulas[:, 2].mean()
+        # Recalcular pesos para la pose (usa el último scan)
+        # Por ahora usa media simple pero solo de las partículas más concentradas
+        
+        # Encontrar el cluster más denso con la mediana
+        fila_med = np.median(self.particulas[:, 0])
+        col_med  = np.median(self.particulas[:, 1])
+        
+        # Solo promedia partículas cerca de la mediana (±20 celdas = ±1m)
+        mask = (
+            (np.abs(self.particulas[:, 0] - fila_med) < 20) &
+            (np.abs(self.particulas[:, 1] - col_med)  < 20)
+        )
+        
+        if mask.sum() > 10:
+            mean_fila = self.particulas[mask, 0].mean()
+            mean_col  = self.particulas[mask, 1].mean()
+            mean_yaw  = self.particulas[mask, 2].mean()
+        else:
+            mean_fila = self.particulas[:, 0].mean()
+            mean_col  = self.particulas[:, 1].mean()
+            mean_yaw  = self.particulas[:, 2].mean()
+
         robot_x = MAP_X_MIN + mean_col  * self.res_x
         robot_y = MAP_Y_MAX - mean_fila * self.res_y
         return robot_x, robot_y, float(mean_yaw)
@@ -368,12 +387,19 @@ class MCLNode(Node):
         dtheta = pose_actual[2] - self.pose_anterior[2]
         self.pose_anterior = pose_actual
 
+
+        # Ignora si es puro giro sin avance — evita dispersión por safety
         if abs(dx) < 0.001 and abs(dy) < 0.001 and abs(dtheta) < 0.001:
             return
 
-        self.particulas[:, 0] -= (dy / self.res_y) + np.random.randn(N).astype(np.float32) * 0.1
-        self.particulas[:, 1] += (dx / self.res_x) + np.random.randn(N).astype(np.float32) * 0.1
-        self.particulas[:, 2] += dtheta            + np.random.randn(N).astype(np.float32) * 0.05
+         # NUEVO: si solo gira sin moverse, reduce el ruido angular
+        solo_giro = abs(dx) < 0.005 and abs(dy) < 0.005
+
+        noise_ang = 0.01 if solo_giro else 0.02
+
+        self.particulas[:, 0] -= (dy / self.res_y) + np.random.randn(N).astype(np.float32) * 0.05
+        self.particulas[:, 1] += (dx / self.res_x) + np.random.randn(N).astype(np.float32) * 0.05
+        self.particulas[:, 2] += dtheta            + np.random.randn(N).astype(np.float32) * noise_ang
         self.particulas[:, 0]  = np.clip(self.particulas[:, 0], 0, self.grid.shape[0] - 1)
         self.particulas[:, 1]  = np.clip(self.particulas[:, 1], 0, self.grid.shape[1] - 1)
 
@@ -381,12 +407,12 @@ class MCLNode(Node):
     def scan_callback(self, msg):
         ranges_raw = np.array(msg.ranges, dtype=np.float32)
         ranges_raw = np.where(np.isfinite(ranges_raw), ranges_raw, msg.range_max)
-        ranges = np.clip(ranges_raw, msg.range_min, msg.range_max)[::5]
+        ranges = np.clip(ranges_raw, msg.range_min, msg.range_max)[::2]
 
         if self.angles_cache is None:
             self.angles_cache = np.arange(
                 msg.angle_min, msg.angle_max, msg.angle_increment, dtype=np.float32
-            )[::5]
+            )[::2]
             self.max_range_px = int(msg.range_max / self.res)
             self.get_logger().info(
                 f'Scan: {len(self.angles_cache)} rayos, max_range={self.max_range_px} px'
@@ -399,24 +425,33 @@ class MCLNode(Node):
         sims_metros = sims * self.res
         sigma = 0.5
         diff  = sims_metros - ranges
-        pesos = np.exp(-0.5 * np.mean(diff ** 2, axis=1) / sigma ** 2)
+        
+
+        # Peso mayor a rayos cortos (más informativos)
+        ray_weights = 1.0 / (ranges + 0.5)  # rayos cortos pesan más
+        ray_weights /= ray_weights.mean()   # normaliza
+
+        pesos = np.exp(-0.5 * np.mean((diff ** 2) * ray_weights, axis=1) / sigma ** 2)
         peso_sum = pesos.sum()
 
         if peso_sum < 1e-10:
-            self.get_logger().warn('Pesos degenerados — reiniciando con distribución global')
+            self.get_logger().warn('Pesos degenerados — reiniciando')
             self.particulas = self._sample_uniform(N)
             return
 
         pesos /= peso_sum
+
+        # Normalización extra para evitar error de numpy
+        pesos = pesos / pesos.sum() 
 
         # ── Resampleo: N_LOCAL locales + N_RANDOM uniformes ───────────────────
         indices          = np.random.choice(N, N_LOCAL, p=pesos)
         particulas_local = self.particulas[indices]
 
         # ruido post-resampleo
-        particulas_local[:, 0] += np.random.randn(N_LOCAL).astype(np.float32) * 1.0
-        particulas_local[:, 1] += np.random.randn(N_LOCAL).astype(np.float32) * 1.0
-        particulas_local[:, 2] += np.random.randn(N_LOCAL).astype(np.float32) * 0.02
+        particulas_local[:, 0] += np.random.randn(N_LOCAL).astype(np.float32) * 0.3
+        particulas_local[:, 1] += np.random.randn(N_LOCAL).astype(np.float32) * 0.3
+        particulas_local[:, 2] += np.random.randn(N_LOCAL).astype(np.float32) * 0.01
         particulas_local[:, 0]  = np.clip(particulas_local[:, 0], 0, self.grid.shape[0] - 1)
         particulas_local[:, 1]  = np.clip(particulas_local[:, 1], 0, self.grid.shape[1] - 1)
 
@@ -427,6 +462,8 @@ class MCLNode(Node):
 
         # ── Publicar pose ─────────────────────────────────────────────────────
         rx, ry, ryaw = self.get_pose()
+
+        #ryaw = math.atan2(math.sin(ryaw - math.pi/2), math.cos(ryaw - math.pi/2))
 
         pose_msg = PoseStamped()
         pose_msg.header.stamp    = self.get_clock().now().to_msg()

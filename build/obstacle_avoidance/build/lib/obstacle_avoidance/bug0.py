@@ -5,7 +5,7 @@ from rclpy.qos import QoSProfile, ReliabilityPolicy
 from sensor_msgs.msg import LaserScan
 from geometry_msgs.msg import Twist, PoseStamped
 
-GOAL = (2.3183, 0.9210)
+GOAL = (1.1270, 0.7566)
 
 LIN_VEL      = 0.05
 ANG_VEL      = 0.09
