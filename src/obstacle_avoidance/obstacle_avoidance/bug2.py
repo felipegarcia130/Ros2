@@ -19,8 +19,10 @@ def angle_to(x, y, gx, gy): return math.atan2(gy - y, gx - x)
 def dist_to(x, y, gx, gy):  return math.hypot(gx - x, gy - y)
 def angle_diff(a, b):
     d = a - b
-    while d >  math.pi: d -= 2*math.pi
-    while d < -math.pi: d += 2*math.pi
+    while d > math.pi:
+        d -= 2 * math.pi
+    while d < -math.pi:
+        d += 2 * math.pi
     return d
 class Bug2(Node):
     def __init__(self):
