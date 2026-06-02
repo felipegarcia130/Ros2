@@ -1,0 +1,228 @@
+[0.000000] (-) TimerEvent: {}
+[0.001189] (-) JobUnselected: {'identifier': 'azure_kinect_ros_driver'}
+[0.001287] (-) JobUnselected: {'identifier': 'mi_servicio'}
+[0.001306] (-) JobUnselected: {'identifier': 'puzzle_sim'}
+[0.001324] (mi_interfaces) JobQueued: {'identifier': 'mi_interfaces', 'dependencies': OrderedDict()}
+[0.001343] (mi_interfaces) JobStarted: {'identifier': 'mi_interfaces'}
+[0.013128] (mi_interfaces) JobProgress: {'identifier': 'mi_interfaces', 'progress': 'cmake'}
+[0.015815] (mi_interfaces) JobProgress: {'identifier': 'mi_interfaces', 'progress': 'build'}
+[0.015940] (mi_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/felipe/ros2_ws/build/mi_interfaces', '--', '-j12', '-l12'], 'cwd': '/home/felipe/ros2_ws/build/mi_interfaces', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('HISTFILESIZE', '2000'), ('LANGUAGE', 'es_MX:es'), ('WARP_HONOR_PS1', '0'), ('USER', 'felipe'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/felipe'), ('OLDPWD', '/home/felipe/ros2_ws'), ('TERM_PROGRAM_VERSION', 'v0.2026.04.08.08.36.stable_05'), ('WARP_CLIENT_VERSION', 'v0.2026.04.08.08.36.stable_05'), ('DESKTOP_SESSION', 'ubuntu'), ('WARP_USE_SSH_WRAPPER', '1'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/dev.warp.Warp.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1926'), ('SYSTEMD_EXEC_PID', '2274'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '5897'), ('COLCON_PREFIX_PATH', '/home/felipe/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'felipe'), ('JOURNAL_STREAM', '8:15931'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'felipe'), ('SSH_SOCKET_DIR', '~/.ssh'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WARP_IS_LOCAL_SHELL_SESSION', '1'), ('WINDOWPATH', '2'), ('PATH', '/home/felipe/.local/bin:/opt/ros/humble/bin:/home/felipe/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/felipe-Thin-15-B12VE:@/tmp/.ICE-unix/2247,unix/felipe-Thin-15-B12VE:/tmp/.ICE-unix/2247'), ('INVOCATION_ID', 'f64f6b0ea84b495e93863106d105cfc1'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('WARP_CLI_AGENT_PROTOCOL_VERSION', '1'), ('DISPLAY', ':1'), ('WARP_PATH_APPEND', ''), ('LANG', 'es_MX.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('TERM_PROGRAM', 'WarpTerminal'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/felipe/ros2_ws/install/puzzle_sim:/home/felipe/ros2_ws/install/azure_kinect_ros_driver:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('ROS_AUTOMATIC_DISCOVERY_RANGE', 'SUBNET'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/felipe/ros2_ws/build/mi_interfaces'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('GAZEBO_PLUGIN_PATH', ':/home/felipe/ros2_ws/src/puzzle_sim'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/felipe/ros2_ws/install/puzzle_sim/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/felipe/ros2_ws/install/azure_kinect_ros_driver:/home/felipe/ros2_ws/install/puzzle_sim:/opt/ros/humble')]), 'shell': False}
+[0.098422] (mi_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target mi_interfaces__rosidl_generator_c\x1b[0m\n'}
+[0.099234] (-) TimerEvent: {}
+[0.109036] (mi_interfaces) StdoutLine: {'line': b'[  3%] Built target mi_interfaces__rs\n'}
+[0.111879] (mi_interfaces) StdoutLine: {'line': b'[  6%] Built target mi_interfaces__cpp\n'}
+[0.115888] (mi_interfaces) StdoutLine: {'line': b'[ 15%] Built target mi_interfaces__rosidl_generator_c\n'}
+[0.128110] (mi_interfaces) StdoutLine: {'line': b'[ 15%] Built target ament_cmake_python_copy_mi_interfaces\n'}
+[0.130373] (mi_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target mi_interfaces__rosidl_typesupport_cpp\x1b[0m\n'}
+[0.134044] (mi_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target mi_interfaces__rosidl_typesupport_fastrtps_cpp\x1b[0m\n'}
+[0.135666] (mi_interfaces) StdoutLine: {'line': b'[ 18%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[0.136508] (mi_interfaces) StdoutLine: {'line': b'[ 21%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[0.137602] (mi_interfaces) StdoutLine: {'line': b'[ 25%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[0.138156] (mi_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target mi_interfaces__rosidl_typesupport_introspection_cpp\x1b[0m\n'}
+[0.159423] (mi_interfaces) StdoutLine: {'line': b'[ 34%] Built target mi_interfaces__rosidl_typesupport_fastrtps_cpp\n'}
+[0.160135] (mi_interfaces) StdoutLine: {'line': b'[ 43%] Built target mi_interfaces__rosidl_typesupport_cpp\n'}
+[0.163232] (mi_interfaces) StdoutLine: {'line': b'[ 53%] Built target mi_interfaces__rosidl_typesupport_introspection_cpp\n'}
+[0.199389] (-) TimerEvent: {}
+[0.299884] (-) TimerEvent: {}
+[0.400513] (-) TimerEvent: {}
+[0.501084] (-) TimerEvent: {}
+[0.546661] (mi_interfaces) StdoutLine: {'line': b'running egg_info\n'}
+[0.548084] (mi_interfaces) StdoutLine: {'line': b'writing mi_interfaces.egg-info/PKG-INFO\n'}
+[0.548740] (mi_interfaces) StdoutLine: {'line': b'writing dependency_links to mi_interfaces.egg-info/dependency_links.txt\n'}
+[0.548989] (mi_interfaces) StdoutLine: {'line': b'writing top-level names to mi_interfaces.egg-info/top_level.txt\n'}
+[0.554756] (mi_interfaces) StdoutLine: {'line': b"reading manifest file 'mi_interfaces.egg-info/SOURCES.txt'\n"}
+[0.556071] (mi_interfaces) StdoutLine: {'line': b"writing manifest file 'mi_interfaces.egg-info/SOURCES.txt'\n"}
+[0.558657] (mi_interfaces) StdoutLine: {'line': b'[ 56%] \x1b[32mBuilding C object CMakeFiles/mi_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mi_interfaces/srv/detail/saludo__type_support.c.o\x1b[0m\n'}
+[0.591149] (mi_interfaces) StdoutLine: {'line': b'[ 59%] \x1b[32mBuilding CXX object CMakeFiles/mi_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mi_interfaces/srv/saludo__type_support.cpp.o\x1b[0m\n'}
+[0.601206] (-) TimerEvent: {}
+[0.617128] (mi_interfaces) StdoutLine: {'line': b'[ 62%] \x1b[32m\x1b[1mLinking C shared library libmi_interfaces__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[0.629501] (mi_interfaces) StdoutLine: {'line': b'[ 62%] Built target ament_cmake_python_build_mi_interfaces_egg\n'}
+[0.645895] (mi_interfaces) StdoutLine: {'line': b'[ 65%] \x1b[32m\x1b[1mLinking CXX shared library libmi_interfaces__rosidl_typesupport_c.so\x1b[0m\n'}
+[0.666502] (mi_interfaces) StdoutLine: {'line': b'[ 65%] Built target mi_interfaces__rosidl_typesupport_introspection_c\n'}
+[0.686384] (mi_interfaces) StdoutLine: {'line': b'[ 65%] Built target mi_interfaces__rosidl_typesupport_c\n'}
+[0.701297] (-) TimerEvent: {}
+[0.714358] (mi_interfaces) StdoutLine: {'line': b'[ 68%] \x1b[32mBuilding CXX object CMakeFiles/mi_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mi_interfaces/srv/detail/saludo__type_support_c.cpp.o\x1b[0m\n'}
+[0.801466] (-) TimerEvent: {}
+[0.901861] (-) TimerEvent: {}
+[0.949499] (mi_interfaces) StdoutLine: {'line': b'[ 71%] \x1b[32m\x1b[1mLinking CXX shared library libmi_interfaces__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[1.002089] (-) TimerEvent: {}
+[1.072213] (mi_interfaces) StdoutLine: {'line': b'[ 71%] Built target mi_interfaces__rosidl_typesupport_fastrtps_c\n'}
+[1.102238] (-) TimerEvent: {}
+[1.110953] (mi_interfaces) StdoutLine: {'line': b'[ 71%] Built target mi_interfaces\n'}
+[1.146962] (mi_interfaces) StdoutLine: {'line': b'[ 75%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[1.202356] (-) TimerEvent: {}
+[1.302768] (-) TimerEvent: {}
+[1.403269] (-) TimerEvent: {}
+[1.503780] (-) TimerEvent: {}
+[1.590755] (mi_interfaces) StdoutLine: {'line': b'[ 75%] Built target mi_interfaces__py\n'}
+[1.603980] (-) TimerEvent: {}
+[1.621215] (mi_interfaces) StdoutLine: {'line': b'[ 78%] \x1b[32mBuilding C object CMakeFiles/mi_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mi_interfaces/srv/_saludo_s.c.o\x1b[0m\n'}
+[1.704229] (-) TimerEvent: {}
+[1.741545] (mi_interfaces) StdoutLine: {'line': b'[ 81%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/mi_interfaces/libmi_interfaces__rosidl_generator_py.so\x1b[0m\n'}
+[1.772717] (mi_interfaces) StdoutLine: {'line': b'[ 81%] Built target mi_interfaces__rosidl_generator_py\n'}
+[1.790853] (mi_interfaces) StdoutLine: {'line': b'[ 84%] \x1b[32mBuilding C object CMakeFiles/mi_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/mi_interfaces/_mi_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[1.791452] (mi_interfaces) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/mi_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/mi_interfaces/_mi_interfaces_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[1.792208] (mi_interfaces) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding C object CMakeFiles/mi_interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/mi_interfaces/_mi_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[1.804393] (-) TimerEvent: {}
+[1.872103] (mi_interfaces) StdoutLine: {'line': b'[ 93%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/mi_interfaces/mi_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[1.874103] (mi_interfaces) StdoutLine: {'line': b'[ 96%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/mi_interfaces/mi_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[1.875456] (mi_interfaces) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/mi_interfaces/mi_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[1.904557] (-) TimerEvent: {}
+[1.911096] (mi_interfaces) StdoutLine: {'line': b'[100%] Built target mi_interfaces__rosidl_typesupport_fastrtps_c__pyext\n'}
+[1.912183] (mi_interfaces) StdoutLine: {'line': b'[100%] Built target mi_interfaces__rosidl_typesupport_c__pyext\n'}
+[1.927521] (mi_interfaces) StdoutLine: {'line': b'[100%] Built target mi_interfaces__rosidl_typesupport_introspection_c__pyext\n'}
+[1.948189] (mi_interfaces) CommandEnded: {'returncode': 0}
+[1.949669] (mi_interfaces) JobProgress: {'identifier': 'mi_interfaces', 'progress': 'install'}
+[1.966779] (mi_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/felipe/ros2_ws/build/mi_interfaces'], 'cwd': '/home/felipe/ros2_ws/build/mi_interfaces', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('HISTFILESIZE', '2000'), ('LANGUAGE', 'es_MX:es'), ('WARP_HONOR_PS1', '0'), ('USER', 'felipe'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/felipe'), ('OLDPWD', '/home/felipe/ros2_ws'), ('TERM_PROGRAM_VERSION', 'v0.2026.04.08.08.36.stable_05'), ('WARP_CLIENT_VERSION', 'v0.2026.04.08.08.36.stable_05'), ('DESKTOP_SESSION', 'ubuntu'), ('WARP_USE_SSH_WRAPPER', '1'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/dev.warp.Warp.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1926'), ('SYSTEMD_EXEC_PID', '2274'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '5897'), ('COLCON_PREFIX_PATH', '/home/felipe/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'felipe'), ('JOURNAL_STREAM', '8:15931'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'felipe'), ('SSH_SOCKET_DIR', '~/.ssh'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WARP_IS_LOCAL_SHELL_SESSION', '1'), ('WINDOWPATH', '2'), ('PATH', '/home/felipe/.local/bin:/opt/ros/humble/bin:/home/felipe/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/felipe-Thin-15-B12VE:@/tmp/.ICE-unix/2247,unix/felipe-Thin-15-B12VE:/tmp/.ICE-unix/2247'), ('INVOCATION_ID', 'f64f6b0ea84b495e93863106d105cfc1'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('WARP_CLI_AGENT_PROTOCOL_VERSION', '1'), ('DISPLAY', ':1'), ('WARP_PATH_APPEND', ''), ('LANG', 'es_MX.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('TERM_PROGRAM', 'WarpTerminal'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/felipe/ros2_ws/install/puzzle_sim:/home/felipe/ros2_ws/install/azure_kinect_ros_driver:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('ROS_AUTOMATIC_DISCOVERY_RANGE', 'SUBNET'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/felipe/ros2_ws/build/mi_interfaces'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('GAZEBO_PLUGIN_PATH', ':/home/felipe/ros2_ws/src/puzzle_sim'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/felipe/ros2_ws/install/puzzle_sim/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/felipe/ros2_ws/install/azure_kinect_ros_driver:/home/felipe/ros2_ws/install/puzzle_sim:/opt/ros/humble')]), 'shell': False}
+[1.981255] (mi_interfaces) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[1.981670] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/ament_index/resource_index/rosidl_interfaces/mi_interfaces\n'}
+[1.981760] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces\n'}
+[1.981826] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/msg\n'}
+[1.981929] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/msg/rosidl_generator_c__visibility_control.h\n'}
+[1.982027] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv\n'}
+[1.982085] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv/detail\n'}
+[1.982149] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv/detail/saludo__functions.c\n'}
+[1.982209] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv/detail/saludo__type_support.h\n'}
+[1.982299] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv/detail/saludo__struct.h\n'}
+[1.982384] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv/detail/saludo__functions.h\n'}
+[1.982432] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv/saludo.h\n'}
+[1.982540] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/environment/library_path.sh\n'}
+[1.982587] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/environment/library_path.dsv\n'}
+[1.982660] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/lib/libmi_interfaces__rosidl_generator_c.so\n'}
+[1.982836] (mi_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/felipe/ros2_ws/install/mi_interfaces/lib/libmi_interfaces__rosidl_generator_c.so" to ""\n'}
+[1.982930] (mi_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces\n'}
+[1.983034] (mi_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/msg\n'}
+[1.983107] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[1.983154] (mi_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv\n'}
+[1.983205] (mi_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv/detail\n'}
+[1.983288] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv/detail/saludo__rosidl_typesupport_fastrtps_c.h\n'}
+[1.983448] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/lib/libmi_interfaces__rosidl_typesupport_fastrtps_c.so\n'}
+[1.983567] (mi_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/felipe/ros2_ws/install/mi_interfaces/lib/libmi_interfaces__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[1.983684] (mi_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces\n'}
+[1.983808] (mi_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/msg\n'}
+[1.983959] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[1.984041] (mi_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv\n'}
+[1.984202] (mi_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv/detail\n'}
+[1.984441] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv/detail/saludo__rosidl_typesupport_introspection_c.h\n'}
+[1.984507] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv/detail/saludo__type_support.c\n'}
+[1.984634] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/lib/libmi_interfaces__rosidl_typesupport_introspection_c.so\n'}
+[1.984872] (mi_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/felipe/ros2_ws/install/mi_interfaces/lib/libmi_interfaces__rosidl_typesupport_introspection_c.so" to ""\n'}
+[1.984948] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/lib/libmi_interfaces__rosidl_typesupport_c.so\n'}
+[1.985103] (mi_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/felipe/ros2_ws/install/mi_interfaces/lib/libmi_interfaces__rosidl_typesupport_c.so" to ""\n'}
+[1.985168] (mi_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces\n'}
+[1.985352] (mi_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/msg\n'}
+[1.985466] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[1.985524] (mi_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv\n'}
+[1.985582] (mi_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv/detail\n'}
+[1.985641] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv/detail/saludo__builder.hpp\n'}
+[1.985698] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv/detail/saludo__struct.hpp\n'}
+[1.985751] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv/detail/saludo__type_support.hpp\n'}
+[1.985852] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv/detail/saludo__traits.hpp\n'}
+[1.986020] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv/saludo.hpp\n'}
+[1.986100] (mi_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces\n'}
+[1.986165] (mi_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/msg\n'}
+[1.986227] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[1.986288] (mi_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv\n'}
+[1.986341] (mi_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv/detail\n'}
+[1.986395] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv/detail/saludo__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[1.986448] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv/detail/dds_fastrtps\n'}
+[1.986550] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/lib/libmi_interfaces__rosidl_typesupport_fastrtps_cpp.so\n'}
+[1.986681] (mi_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/felipe/ros2_ws/install/mi_interfaces/lib/libmi_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[1.986742] (mi_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces\n'}
+[1.986797] (mi_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv\n'}
+[1.986849] (mi_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv/detail\n'}
+[1.986890] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv/detail/saludo__rosidl_typesupport_introspection_cpp.hpp\n'}
+[1.986946] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/include/mi_interfaces/mi_interfaces/srv/detail/saludo__type_support.cpp\n'}
+[1.987128] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/lib/libmi_interfaces__rosidl_typesupport_introspection_cpp.so\n'}
+[1.987305] (mi_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/felipe/ros2_ws/install/mi_interfaces/lib/libmi_interfaces__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[1.987344] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/lib/libmi_interfaces__rosidl_typesupport_cpp.so\n'}
+[1.987382] (mi_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/felipe/ros2_ws/install/mi_interfaces/lib/libmi_interfaces__rosidl_typesupport_cpp.so" to ""\n'}
+[1.987479] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/environment/pythonpath.sh\n'}
+[1.987524] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/environment/pythonpath.dsv\n'}
+[1.987650] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces-0.0.0-py3.10.egg-info\n'}
+[1.987707] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[1.987805] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[1.987858] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[1.987906] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[1.987996] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces\n'}
+[1.988052] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces/mi_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.988140] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces/srv\n'}
+[1.988202] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces/srv/__init__.py\n'}
+[1.988270] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces/srv/_saludo.py\n'}
+[1.988388] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces/srv/_saludo_s.c\n'}
+[1.988455] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces/_mi_interfaces_s.ep.rosidl_typesupport_c.c\n'}
+[1.988514] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces/__init__.py\n'}
+[1.988650] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces/_mi_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[1.988715] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces/libmi_interfaces__rosidl_generator_py.so\n'}
+[1.988827] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces/_mi_interfaces_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[1.988886] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces/mi_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.988953] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces/mi_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[2.004815] (-) TimerEvent: {}
+[2.045799] (mi_interfaces) StdoutLine: {'line': b"Listing '/home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces'...\n"}
+[2.046109] (mi_interfaces) StdoutLine: {'line': b"Compiling '/home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces/__init__.py'...\n"}
+[2.046188] (mi_interfaces) StdoutLine: {'line': b"Listing '/home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces/srv'...\n"}
+[2.046252] (mi_interfaces) StdoutLine: {'line': b"Compiling '/home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces/srv/__init__.py'...\n"}
+[2.046316] (mi_interfaces) StdoutLine: {'line': b"Compiling '/home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces/srv/_saludo.py'...\n"}
+[2.053552] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces/mi_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[2.053906] (mi_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces/mi_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[2.054052] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces/mi_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[2.054339] (mi_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces/mi_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[2.054514] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces/mi_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[2.054771] (mi_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages/mi_interfaces/mi_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[2.054919] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/lib/libmi_interfaces__rosidl_generator_py.so\n'}
+[2.055212] (mi_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/felipe/ros2_ws/install/mi_interfaces/lib/libmi_interfaces__rosidl_generator_py.so" to ""\n'}
+[2.055388] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/ament_index/resource_index/rust_packages/mi_interfaces\n'}
+[2.055493] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/rust\n'}
+[2.055635] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/rust/Cargo.toml\n'}
+[2.055849] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/rust/build.rs\n'}
+[2.056041] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/rust/src\n'}
+[2.056195] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/rust/src/srv\n'}
+[2.056329] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/rust/src/srv/rmw.rs\n'}
+[2.056430] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/rust/src/srv.rs\n'}
+[2.056533] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/rust/src/lib.rs\n'}
+[2.056641] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/srv/Saludo.idl\n'}
+[2.056858] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/srv/Saludo.srv\n'}
+[2.056992] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/srv/Saludo_Request.msg\n'}
+[2.057236] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/srv/Saludo_Response.msg\n'}
+[2.057391] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/ament_index/resource_index/package_run_dependencies/mi_interfaces\n'}
+[2.057493] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/ament_index/resource_index/parent_prefix_path/mi_interfaces\n'}
+[2.057597] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/environment/ament_prefix_path.sh\n'}
+[2.057750] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/environment/ament_prefix_path.dsv\n'}
+[2.057890] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/environment/path.sh\n'}
+[2.058007] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/environment/path.dsv\n'}
+[2.058106] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/local_setup.bash\n'}
+[2.058186] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/local_setup.sh\n'}
+[2.058283] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/local_setup.zsh\n'}
+[2.058363] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/local_setup.dsv\n'}
+[2.058417] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/package.dsv\n'}
+[2.058461] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/ament_index/resource_index/packages/mi_interfaces\n'}
+[2.058559] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/export_mi_interfaces__rosidl_generator_cExport.cmake\n'}
+[2.058653] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/export_mi_interfaces__rosidl_generator_cExport-noconfig.cmake\n'}
+[2.058701] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/export_mi_interfaces__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[2.058748] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/export_mi_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[2.058795] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/mi_interfaces__rosidl_typesupport_introspection_cExport.cmake\n'}
+[2.058842] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/mi_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[2.058909] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/mi_interfaces__rosidl_typesupport_cExport.cmake\n'}
+[2.059018] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/mi_interfaces__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[2.059083] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/export_mi_interfaces__rosidl_generator_cppExport.cmake\n'}
+[2.059177] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/export_mi_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[2.059290] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/export_mi_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[2.059424] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/mi_interfaces__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[2.059539] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/mi_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[2.059646] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/mi_interfaces__rosidl_typesupport_cppExport.cmake\n'}
+[2.059758] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/mi_interfaces__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[2.059891] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/export_mi_interfaces__rosidl_generator_pyExport.cmake\n'}
+[2.060052] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/export_mi_interfaces__rosidl_generator_pyExport-noconfig.cmake\n'}
+[2.060228] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/rosidl_cmake-extras.cmake\n'}
+[2.060387] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[2.060541] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[2.060714] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[2.060874] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[2.061014] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[2.061150] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[2.061248] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/mi_interfacesConfig.cmake\n'}
+[2.061313] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/cmake/mi_interfacesConfig-version.cmake\n'}
+[2.061398] (mi_interfaces) StdoutLine: {'line': b'-- Installing: /home/felipe/ros2_ws/install/mi_interfaces/share/mi_interfaces/package.xml\n'}
+[2.065877] (mi_interfaces) CommandEnded: {'returncode': 0}
+[2.092741] (mi_interfaces) JobEnded: {'identifier': 'mi_interfaces', 'rc': 0}
+[2.093716] (-) EventReactorShutdown: {}

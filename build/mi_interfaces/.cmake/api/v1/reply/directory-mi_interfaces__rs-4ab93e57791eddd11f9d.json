@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "mi_interfaces__rs",
+		"source" : "/home/felipe/ros2_ws/build/mi_interfaces/mi_interfaces__rs"
+	}
+}

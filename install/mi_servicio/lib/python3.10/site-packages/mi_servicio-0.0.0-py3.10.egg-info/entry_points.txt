@@ -1,0 +1,4 @@
+[console_scripts]
+cliente = mi_servicio.cliente:main
+servidor = mi_servicio.servidor:main
+

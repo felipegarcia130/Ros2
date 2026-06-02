@@ -1,0 +1,41 @@
+[0.516s] Invoking command in '/home/felipe/ros2_ws/src/puzzle_sim': PYTHONPATH=/home/felipe/ros2_ws/build/puzzle_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/felipe/ros2_ws/install/puzzle_sim/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/puzzle_sim build --build-base /home/felipe/ros2_ws/build/puzzle_sim/build install --record /home/felipe/ros2_ws/build/puzzle_sim/install.log --single-version-externally-managed install_data
+[0.666s] running egg_info
+[0.667s] creating ../../build/puzzle_sim/puzzle_sim.egg-info
+[0.667s] writing ../../build/puzzle_sim/puzzle_sim.egg-info/PKG-INFO
+[0.667s] writing dependency_links to ../../build/puzzle_sim/puzzle_sim.egg-info/dependency_links.txt
+[0.667s] writing entry points to ../../build/puzzle_sim/puzzle_sim.egg-info/entry_points.txt
+[0.667s] writing requirements to ../../build/puzzle_sim/puzzle_sim.egg-info/requires.txt
+[0.668s] writing top-level names to ../../build/puzzle_sim/puzzle_sim.egg-info/top_level.txt
+[0.668s] writing manifest file '../../build/puzzle_sim/puzzle_sim.egg-info/SOURCES.txt'
+[0.669s] reading manifest file '../../build/puzzle_sim/puzzle_sim.egg-info/SOURCES.txt'
+[0.669s] writing manifest file '../../build/puzzle_sim/puzzle_sim.egg-info/SOURCES.txt'
+[0.669s] running build
+[0.669s] running build_py
+[0.670s] creating /home/felipe/ros2_ws/build/puzzle_sim/build
+[0.670s] creating /home/felipe/ros2_ws/build/puzzle_sim/build/lib
+[0.670s] creating /home/felipe/ros2_ws/build/puzzle_sim/build/lib/puzzle_sim
+[0.670s] copying puzzle_sim/__init__.py -> /home/felipe/ros2_ws/build/puzzle_sim/build/lib/puzzle_sim
+[0.670s] running install
+[0.670s] running install_lib
+[0.670s] creating /home/felipe/ros2_ws/install/puzzle_sim/lib/python3.10/site-packages/puzzle_sim
+[0.670s] copying /home/felipe/ros2_ws/build/puzzle_sim/build/lib/puzzle_sim/__init__.py -> /home/felipe/ros2_ws/install/puzzle_sim/lib/python3.10/site-packages/puzzle_sim
+[0.671s] byte-compiling /home/felipe/ros2_ws/install/puzzle_sim/lib/python3.10/site-packages/puzzle_sim/__init__.py to __init__.cpython-310.pyc
+[0.671s] running install_data
+[0.671s] creating /home/felipe/ros2_ws/install/puzzle_sim/share/ament_index
+[0.671s] creating /home/felipe/ros2_ws/install/puzzle_sim/share/ament_index/resource_index
+[0.671s] creating /home/felipe/ros2_ws/install/puzzle_sim/share/ament_index/resource_index/packages
+[0.671s] copying resource/puzzle_sim -> /home/felipe/ros2_ws/install/puzzle_sim/share/ament_index/resource_index/packages
+[0.671s] copying package.xml -> /home/felipe/ros2_ws/install/puzzle_sim/share/puzzle_sim
+[0.671s] creating /home/felipe/ros2_ws/install/puzzle_sim/share/puzzle_sim/launch
+[0.671s] copying launch/gazebo.launch.py -> /home/felipe/ros2_ws/install/puzzle_sim/share/puzzle_sim/launch
+[0.671s] creating /home/felipe/ros2_ws/install/puzzle_sim/share/puzzle_sim/urdf
+[0.671s] copying urdf/puzzlebot.urdf -> /home/felipe/ros2_ws/install/puzzle_sim/share/puzzle_sim/urdf
+[0.671s] creating /home/felipe/ros2_ws/install/puzzle_sim/share/puzzle_sim/meshes
+[0.671s] copying meshes/Puzzlebot_Caster_Wheel.stl -> /home/felipe/ros2_ws/install/puzzle_sim/share/puzzle_sim/meshes
+[0.671s] copying meshes/Puzzlebot_Jetson_Lidar_Edition_Base.stl -> /home/felipe/ros2_ws/install/puzzle_sim/share/puzzle_sim/meshes
+[0.671s] copying meshes/Puzzlebot_Wheel.stl -> /home/felipe/ros2_ws/install/puzzle_sim/share/puzzle_sim/meshes
+[0.671s] running install_egg_info
+[0.673s] Copying ../../build/puzzle_sim/puzzle_sim.egg-info to /home/felipe/ros2_ws/install/puzzle_sim/lib/python3.10/site-packages/puzzle_sim-0.0.1-py3.10.egg-info
+[0.674s] running install_scripts
+[0.691s] writing list of installed files to '/home/felipe/ros2_ws/build/puzzle_sim/install.log'
+[0.723s] Invoked command in '/home/felipe/ros2_ws/src/puzzle_sim' returned '0': PYTHONPATH=/home/felipe/ros2_ws/build/puzzle_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/felipe/ros2_ws/install/puzzle_sim/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/puzzle_sim build --build-base /home/felipe/ros2_ws/build/puzzle_sim/build install --record /home/felipe/ros2_ws/build/puzzle_sim/install.log --single-version-externally-managed install_data

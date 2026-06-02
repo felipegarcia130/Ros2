@@ -1,0 +1,6 @@
+{
+  "package_name": "mi_interfaces",
+  "non_idl_tuples": [
+    "/home/felipe/ros2_ws/src/mi_interfaces:srv/Saludo.srv"
+  ]
+}

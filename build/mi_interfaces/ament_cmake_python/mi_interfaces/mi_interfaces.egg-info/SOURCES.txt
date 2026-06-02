@@ -1,0 +1,6 @@
+setup.py
+mi_interfaces/__init__.py
+mi_interfaces.egg-info/PKG-INFO
+mi_interfaces.egg-info/SOURCES.txt
+mi_interfaces.egg-info/dependency_links.txt
+mi_interfaces.egg-info/top_level.txt

@@ -1,0 +1,17 @@
+package.xml
+setup.cfg
+setup.py
+../../build/mi_servicio/mi_servicio.egg-info/PKG-INFO
+../../build/mi_servicio/mi_servicio.egg-info/SOURCES.txt
+../../build/mi_servicio/mi_servicio.egg-info/dependency_links.txt
+../../build/mi_servicio/mi_servicio.egg-info/entry_points.txt
+../../build/mi_servicio/mi_servicio.egg-info/requires.txt
+../../build/mi_servicio/mi_servicio.egg-info/top_level.txt
+../../build/mi_servicio/mi_servicio.egg-info/zip-safe
+mi_servicio/__init__.py
+mi_servicio/cliente.py
+mi_servicio/servidor.py
+resource/mi_servicio
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py

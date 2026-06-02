@@ -1,0 +1,41 @@
+[0.903s] Invoking command in '/home/felipe/ros2_ws/src/mi_servicio': AMENT_PREFIX_PATH=/home/felipe/ros2_ws/install/mi_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/felipe/ros2_ws/install/mi_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/felipe/ros2_ws/install/mi_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/felipe/ros2_ws/build/mi_servicio/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/felipe/ros2_ws/install/mi_servicio/lib/python3.10/site-packages:/home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mi_servicio build --build-base /home/felipe/ros2_ws/build/mi_servicio/build install --record /home/felipe/ros2_ws/build/mi_servicio/install.log --single-version-externally-managed install_data
+[1.136s] running egg_info
+[1.136s] creating ../../build/mi_servicio/mi_servicio.egg-info
+[1.137s] writing ../../build/mi_servicio/mi_servicio.egg-info/PKG-INFO
+[1.137s] writing dependency_links to ../../build/mi_servicio/mi_servicio.egg-info/dependency_links.txt
+[1.137s] writing entry points to ../../build/mi_servicio/mi_servicio.egg-info/entry_points.txt
+[1.137s] writing requirements to ../../build/mi_servicio/mi_servicio.egg-info/requires.txt
+[1.137s] writing top-level names to ../../build/mi_servicio/mi_servicio.egg-info/top_level.txt
+[1.137s] writing manifest file '../../build/mi_servicio/mi_servicio.egg-info/SOURCES.txt'
+[1.139s] reading manifest file '../../build/mi_servicio/mi_servicio.egg-info/SOURCES.txt'
+[1.139s] writing manifest file '../../build/mi_servicio/mi_servicio.egg-info/SOURCES.txt'
+[1.140s] running build
+[1.140s] running build_py
+[1.140s] creating /home/felipe/ros2_ws/build/mi_servicio/build
+[1.140s] creating /home/felipe/ros2_ws/build/mi_servicio/build/lib
+[1.140s] creating /home/felipe/ros2_ws/build/mi_servicio/build/lib/mi_servicio
+[1.140s] copying mi_servicio/__init__.py -> /home/felipe/ros2_ws/build/mi_servicio/build/lib/mi_servicio
+[1.140s] copying mi_servicio/cliente.py -> /home/felipe/ros2_ws/build/mi_servicio/build/lib/mi_servicio
+[1.140s] copying mi_servicio/servidor.py -> /home/felipe/ros2_ws/build/mi_servicio/build/lib/mi_servicio
+[1.140s] running install
+[1.140s] running install_lib
+[1.141s] creating /home/felipe/ros2_ws/install/mi_servicio/lib/python3.10/site-packages/mi_servicio
+[1.141s] copying /home/felipe/ros2_ws/build/mi_servicio/build/lib/mi_servicio/__init__.py -> /home/felipe/ros2_ws/install/mi_servicio/lib/python3.10/site-packages/mi_servicio
+[1.141s] copying /home/felipe/ros2_ws/build/mi_servicio/build/lib/mi_servicio/cliente.py -> /home/felipe/ros2_ws/install/mi_servicio/lib/python3.10/site-packages/mi_servicio
+[1.141s] copying /home/felipe/ros2_ws/build/mi_servicio/build/lib/mi_servicio/servidor.py -> /home/felipe/ros2_ws/install/mi_servicio/lib/python3.10/site-packages/mi_servicio
+[1.141s] byte-compiling /home/felipe/ros2_ws/install/mi_servicio/lib/python3.10/site-packages/mi_servicio/__init__.py to __init__.cpython-310.pyc
+[1.141s] byte-compiling /home/felipe/ros2_ws/install/mi_servicio/lib/python3.10/site-packages/mi_servicio/cliente.py to cliente.cpython-310.pyc
+[1.142s] byte-compiling /home/felipe/ros2_ws/install/mi_servicio/lib/python3.10/site-packages/mi_servicio/servidor.py to servidor.cpython-310.pyc
+[1.142s] running install_data
+[1.142s] creating /home/felipe/ros2_ws/install/mi_servicio/share/ament_index
+[1.142s] creating /home/felipe/ros2_ws/install/mi_servicio/share/ament_index/resource_index
+[1.143s] creating /home/felipe/ros2_ws/install/mi_servicio/share/ament_index/resource_index/packages
+[1.143s] copying resource/mi_servicio -> /home/felipe/ros2_ws/install/mi_servicio/share/ament_index/resource_index/packages
+[1.143s] copying package.xml -> /home/felipe/ros2_ws/install/mi_servicio/share/mi_servicio
+[1.143s] running install_egg_info
+[1.145s] Copying ../../build/mi_servicio/mi_servicio.egg-info to /home/felipe/ros2_ws/install/mi_servicio/lib/python3.10/site-packages/mi_servicio-0.0.0-py3.10.egg-info
+[1.145s] running install_scripts
+[1.162s] Installing cliente script to /home/felipe/ros2_ws/install/mi_servicio/lib/mi_servicio
+[1.162s] Installing servidor script to /home/felipe/ros2_ws/install/mi_servicio/lib/mi_servicio
+[1.162s] writing list of installed files to '/home/felipe/ros2_ws/build/mi_servicio/install.log'
+[1.185s] Invoked command in '/home/felipe/ros2_ws/src/mi_servicio' returned '0': AMENT_PREFIX_PATH=/home/felipe/ros2_ws/install/mi_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/felipe/ros2_ws/install/mi_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/felipe/ros2_ws/install/mi_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/felipe/ros2_ws/build/mi_servicio/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/felipe/ros2_ws/install/mi_servicio/lib/python3.10/site-packages:/home/felipe/ros2_ws/install/mi_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mi_servicio build --build-base /home/felipe/ros2_ws/build/mi_servicio/build install --record /home/felipe/ros2_ws/build/mi_servicio/install.log --single-version-externally-managed install_data

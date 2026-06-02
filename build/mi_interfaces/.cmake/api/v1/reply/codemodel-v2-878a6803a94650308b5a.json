@@ -1,0 +1,258 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-820300c6a86730376ccd.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						17,
+						18
+					]
+				},
+				{
+					"build" : "mi_interfaces__py",
+					"jsonFile" : "directory-mi_interfaces__py-a354500763e86818d931.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/felipe/ros2_ws/build/mi_interfaces/mi_interfaces__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "mi_interfaces__rs",
+					"jsonFile" : "directory-mi_interfaces__rs-4ab93e57791eddd11f9d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/felipe/ros2_ws/build/mi_interfaces/mi_interfaces__rs",
+					"targetIndexes" : 
+					[
+						16
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "mi_interfaces",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_mi_interfaces_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_mi_interfaces_egg-398fb0f9a0ed7afd2806.json",
+					"name" : "ament_cmake_python_build_mi_interfaces_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_mi_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_mi_interfaces-090d4869445320fa49e1.json",
+					"name" : "ament_cmake_python_copy_mi_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mi_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mi_interfaces-dd8e2b8ab6bcd53932e5.json",
+					"name" : "mi_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mi_interfaces__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mi_interfaces__cpp-28db63845d80b13789ee.json",
+					"name" : "mi_interfaces__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "mi_interfaces__py::@89cd0ff3368e4e423ea7",
+					"jsonFile" : "target-mi_interfaces__py-d58fc8cc0e66a0e6857b.json",
+					"name" : "mi_interfaces__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mi_interfaces__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mi_interfaces__rosidl_generator_c-710a717dde7dca13916e.json",
+					"name" : "mi_interfaces__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mi_interfaces__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mi_interfaces__rosidl_generator_py-99f1a2b5d27daf8d6dde.json",
+					"name" : "mi_interfaces__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mi_interfaces__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mi_interfaces__rosidl_typesupport_c-2e685eb9c759f7ed0dc4.json",
+					"name" : "mi_interfaces__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mi_interfaces__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mi_interfaces__rosidl_typesupport_c__pyext-b5265d8f4c191c4df306.json",
+					"name" : "mi_interfaces__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mi_interfaces__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mi_interfaces__rosidl_typesupport_cpp-c4895a48e0ff96bd33d1.json",
+					"name" : "mi_interfaces__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mi_interfaces__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mi_interfaces__rosidl_typesupport_fastrtps_c-d501cb67ab8df64a58e9.json",
+					"name" : "mi_interfaces__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mi_interfaces__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mi_interfaces__rosidl_typesupport_fastrtps_c__pyext-bfa25eb39e065f539d54.json",
+					"name" : "mi_interfaces__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mi_interfaces__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mi_interfaces__rosidl_typesupport_fastrtps_cpp-bca090ae48d9e2c40ca6.json",
+					"name" : "mi_interfaces__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mi_interfaces__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mi_interfaces__rosidl_typesupport_introspection_c-c3e1b595a4257a11123b.json",
+					"name" : "mi_interfaces__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mi_interfaces__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mi_interfaces__rosidl_typesupport_introspection_c__pyext-7a2ef6d2ea328242e903.json",
+					"name" : "mi_interfaces__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mi_interfaces__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mi_interfaces__rosidl_typesupport_introspection_cpp-46ba27eb2d6e0b1564b2.json",
+					"name" : "mi_interfaces__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "mi_interfaces__rs::@7dd95cb4b6f7192e7e27",
+					"jsonFile" : "target-mi_interfaces__rs-7848f01acecf057fb60f.json",
+					"name" : "mi_interfaces__rs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mi_interfaces_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mi_interfaces_uninstall-6a1f31ed4167add29153.json",
+					"name" : "mi_interfaces_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-28b6259f53d079f401d9.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/felipe/ros2_ws/build/mi_interfaces",
+		"source" : "/home/felipe/ros2_ws/src/mi_interfaces"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

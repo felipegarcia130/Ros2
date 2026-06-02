@@ -1,0 +1,14 @@
+[0.480s] Invoking command in '/home/felipe/ros2_ws/src/obstacle_avoidance': PYTHONPATH=/home/felipe/ros2_ws/build/obstacle_avoidance/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/felipe/ros2_ws/install/obstacle_avoidance/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/obstacle_avoidance build --build-base /home/felipe/ros2_ws/build/obstacle_avoidance/build install --record /home/felipe/ros2_ws/build/obstacle_avoidance/install.log --single-version-externally-managed install_data
+[0.663s] running egg_info
+[0.666s] writing manifest file '../../build/obstacle_avoidance/obstacle_avoidance.egg-info/SOURCES.txt'
+[0.666s] running build
+[0.667s] running build_py
+[0.667s] running install
+[0.667s] running install_lib
+[0.668s] running install_data
+[0.668s] running install_egg_info
+[0.669s] removing '/home/felipe/ros2_ws/install/obstacle_avoidance/lib/python3.10/site-packages/obstacle_avoidance-0.0.0-py3.10.egg-info' (and everything under it)
+[0.670s] Copying ../../build/obstacle_avoidance/obstacle_avoidance.egg-info to /home/felipe/ros2_ws/install/obstacle_avoidance/lib/python3.10/site-packages/obstacle_avoidance-0.0.0-py3.10.egg-info
+[0.670s] running install_scripts
+[0.690s] writing list of installed files to '/home/felipe/ros2_ws/build/obstacle_avoidance/install.log'
+[0.725s] Invoked command in '/home/felipe/ros2_ws/src/obstacle_avoidance' returned '0': PYTHONPATH=/home/felipe/ros2_ws/build/obstacle_avoidance/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/felipe/ros2_ws/install/obstacle_avoidance/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/obstacle_avoidance build --build-base /home/felipe/ros2_ws/build/obstacle_avoidance/build install --record /home/felipe/ros2_ws/build/obstacle_avoidance/install.log --single-version-externally-managed install_data

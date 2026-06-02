@@ -1,0 +1,55 @@
+-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+-- Found visualization_msgs: 4.9.0 (/opt/ros/humble/share/visualization_msgs/cmake)
+-- Found image_transport: 3.1.12 (/opt/ros/humble/share/image_transport/cmake)
+-- Found tf2: 0.25.13 (/opt/ros/humble/share/tf2/cmake)
+-- Found tf2_ros: 0.25.13 (/opt/ros/humble/share/tf2_ros/cmake)
+-- Found tf2_geometry_msgs: 0.25.13 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+-- Found cv_bridge: 3.2.1 (/opt/ros/humble/share/cv_bridge/cmake)
+-- Found angles: 1.15.0 (/opt/ros/humble/share/angles/cmake)
+[0mFinding K4A SDK binaries[0m
+[0m!!! Body Tracking SDK not found: body tracking features will not be available !!![0m
+[0mK4A Libs: k4a::k4a;k4a::k4arecord[0m
+[0mK4A DLLs: /usr/lib/x86_64-linux-gnu/libk4a.so.1.4.1;/usr/lib/x86_64-linux-gnu/libk4arecord.so.1.4.1[0m
+[0mK4A Install Needed: FALSE[0m
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/felipe/ros2_ws/build/azure_kinect_ros_driver
+[35m[1mConsolidate compiler generated dependencies of target azure_kinect_ros_driver_node[0m
+[ 20%] [32mBuilding CXX object CMakeFiles/azure_kinect_ros_driver_node.dir/src/k4a_ros_device.cpp.o[0m
+[ 40%] [32m[1mLinking CXX executable node[0m
+[100%] Built target azure_kinect_ros_driver_node
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/felipe/ros2_ws/install/azure_kinect_ros_driver/lib/azure_kinect_ros_driver/node
+-- Symlinking: /home/felipe/ros2_ws/install/azure_kinect_ros_driver/share/azure_kinect_ros_driver//launch/driver.launch.py
+-- Symlinking: /home/felipe/ros2_ws/install/azure_kinect_ros_driver/share/azure_kinect_ros_driver//launch/rectify_test.launch
+-- Symlinking: /home/felipe/ros2_ws/install/azure_kinect_ros_driver/share/azure_kinect_ros_driver//launch/slam_rtabmap.launch
+-- Symlinking: /home/felipe/ros2_ws/install/azure_kinect_ros_driver/share/azure_kinect_ros_driver//urdf/azure_kinect.urdf.xacro
+-- Symlinking: /home/felipe/ros2_ws/install/azure_kinect_ros_driver/share/ament_index/resource_index/package_run_dependencies/azure_kinect_ros_driver
+-- Symlinking: /home/felipe/ros2_ws/install/azure_kinect_ros_driver/share/ament_index/resource_index/parent_prefix_path/azure_kinect_ros_driver
+-- Symlinking: /home/felipe/ros2_ws/install/azure_kinect_ros_driver/share/azure_kinect_ros_driver/environment/ament_prefix_path.sh
+-- Symlinking: /home/felipe/ros2_ws/install/azure_kinect_ros_driver/share/azure_kinect_ros_driver/environment/ament_prefix_path.dsv
+-- Symlinking: /home/felipe/ros2_ws/install/azure_kinect_ros_driver/share/azure_kinect_ros_driver/environment/path.sh
+-- Symlinking: /home/felipe/ros2_ws/install/azure_kinect_ros_driver/share/azure_kinect_ros_driver/environment/path.dsv
+-- Symlinking: /home/felipe/ros2_ws/install/azure_kinect_ros_driver/share/azure_kinect_ros_driver/local_setup.bash
+-- Symlinking: /home/felipe/ros2_ws/install/azure_kinect_ros_driver/share/azure_kinect_ros_driver/local_setup.sh
+-- Symlinking: /home/felipe/ros2_ws/install/azure_kinect_ros_driver/share/azure_kinect_ros_driver/local_setup.zsh
+-- Symlinking: /home/felipe/ros2_ws/install/azure_kinect_ros_driver/share/azure_kinect_ros_driver/local_setup.dsv
+-- Symlinking: /home/felipe/ros2_ws/install/azure_kinect_ros_driver/share/azure_kinect_ros_driver/package.dsv
+-- Symlinking: /home/felipe/ros2_ws/install/azure_kinect_ros_driver/share/ament_index/resource_index/packages/azure_kinect_ros_driver
+-- Symlinking: /home/felipe/ros2_ws/install/azure_kinect_ros_driver/share/azure_kinect_ros_driver/cmake/azure_kinect_ros_driverConfig.cmake
+-- Symlinking: /home/felipe/ros2_ws/install/azure_kinect_ros_driver/share/azure_kinect_ros_driver/cmake/azure_kinect_ros_driverConfig-version.cmake
+-- Symlinking: /home/felipe/ros2_ws/install/azure_kinect_ros_driver/share/azure_kinect_ros_driver/package.xml

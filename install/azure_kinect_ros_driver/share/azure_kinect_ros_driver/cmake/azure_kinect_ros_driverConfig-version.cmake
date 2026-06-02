@@ -1,0 +1,1 @@
+/home/felipe/ros2_ws/build/azure_kinect_ros_driver/ament_cmake_core/azure_kinect_ros_driverConfig-version.cmake

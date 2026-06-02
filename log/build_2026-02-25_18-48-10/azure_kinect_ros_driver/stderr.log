@@ -1,0 +1,13 @@
+[0mFinding K4A SDK binaries[0m
+[0m!!! Body Tracking SDK not found: body tracking features will not be available !!![0m
+[0mK4A Libs: k4a::k4a;k4a::k4arecord[0m
+[0mK4A DLLs: /usr/lib/x86_64-linux-gnu/libk4a.so.1.4.1;/usr/lib/x86_64-linux-gnu/libk4arecord.so.1.4.1[0m
+[0mK4A Install Needed: FALSE[0m
+[01m[K/home/felipe/ros2_ws/src/azure_kinect_ros_driver/src/k4a_ros_device.cpp:17:10:[m[K [01;31m[Kfatal error: [m[Kcv_bridge/cv_bridge.hpp: No existe el archivo o el directorio
+   17 | #include [01;31m[K<cv_bridge/cv_bridge.hpp>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/azure_kinect_ros_driver_node.dir/build.make:90: CMakeFiles/azure_kinect_ros_driver_node.dir/src/k4a_ros_device.cpp.o] Error 1
+gmake[2]: *** Se espera a que terminen otras tareas....
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/azure_kinect_ros_driver_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

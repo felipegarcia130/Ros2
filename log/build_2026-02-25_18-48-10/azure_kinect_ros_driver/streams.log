@@ -1,0 +1,66 @@
+[0.006s] Invoking command in '/home/felipe/ros2_ws/build/azure_kinect_ros_driver': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/felipe/ros2_ws/src/azure_kinect_ros_driver -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/felipe/ros2_ws/install/azure_kinect_ros_driver
+[0.046s] -- The C compiler identification is GNU 11.4.0
+[0.083s] -- The CXX compiler identification is GNU 11.4.0
+[0.087s] -- Detecting C compiler ABI info
+[0.138s] -- Detecting C compiler ABI info - done
+[0.142s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.142s] -- Detecting C compile features
+[0.142s] -- Detecting C compile features - done
+[0.144s] -- Detecting CXX compiler ABI info
+[0.201s] -- Detecting CXX compiler ABI info - done
+[0.206s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.206s] -- Detecting CXX compile features
+[0.206s] -- Detecting CXX compile features - done
+[0.207s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.302s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.343s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.354s] -- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)
+[0.374s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.377s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.381s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.387s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.395s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.417s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.418s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.482s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.500s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.524s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.528s] -- Looking for pthread.h
+[0.579s] -- Looking for pthread.h - found
+[0.579s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.635s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.636s] -- Found Threads: TRUE  
+[0.666s] -- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[0.683s] -- Found visualization_msgs: 4.9.0 (/opt/ros/humble/share/visualization_msgs/cmake)
+[0.695s] -- Found image_transport: 3.1.12 (/opt/ros/humble/share/image_transport/cmake)
+[0.710s] -- Found tf2: 0.25.13 (/opt/ros/humble/share/tf2/cmake)
+[0.712s] -- Found tf2_ros: 0.25.13 (/opt/ros/humble/share/tf2_ros/cmake)
+[0.759s] -- Found tf2_geometry_msgs: 0.25.13 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+[0.765s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[0.766s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[0.766s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[0.767s] -- Found cv_bridge: 3.2.1 (/opt/ros/humble/share/cv_bridge/cmake)
+[0.773s] -- Found angles: 1.15.0 (/opt/ros/humble/share/angles/cmake)
+[0.775s] [0mFinding K4A SDK binaries[0m
+[0.782s] [0m!!! Body Tracking SDK not found: body tracking features will not be available !!![0m
+[0.782s] [0mK4A Libs: k4a::k4a;k4a::k4arecord[0m
+[0.782s] [0mK4A DLLs: /usr/lib/x86_64-linux-gnu/libk4a.so.1.4.1;/usr/lib/x86_64-linux-gnu/libk4arecord.so.1.4.1[0m
+[0.782s] [0mK4A Install Needed: FALSE[0m
+[0.821s] -- Configuring done
+[0.828s] -- Generating done
+[0.831s] -- Build files have been written to: /home/felipe/ros2_ws/build/azure_kinect_ros_driver
+[0.840s] Invoked command in '/home/felipe/ros2_ws/build/azure_kinect_ros_driver' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/felipe/ros2_ws/src/azure_kinect_ros_driver -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/felipe/ros2_ws/install/azure_kinect_ros_driver
+[0.841s] Invoking command in '/home/felipe/ros2_ws/build/azure_kinect_ros_driver': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/felipe/ros2_ws/build/azure_kinect_ros_driver -- -j12 -l12
+[0.879s] [ 60%] [32mBuilding CXX object CMakeFiles/azure_kinect_ros_driver_node.dir/src/k4a_ros_device.cpp.o[0m
+[0.879s] [ 60%] [32mBuilding CXX object CMakeFiles/azure_kinect_ros_driver_node.dir/src/k4a_ros_bridge_node.cpp.o[0m
+[0.880s] [ 60%] [32mBuilding CXX object CMakeFiles/azure_kinect_ros_driver_node.dir/src/k4a_ros_device_params.cpp.o[0m
+[0.880s] [ 80%] [32mBuilding CXX object CMakeFiles/azure_kinect_ros_driver_node.dir/src/k4a_calibration_transform_data.cpp.o[0m
+[1.053s] [01m[K/home/felipe/ros2_ws/src/azure_kinect_ros_driver/src/k4a_ros_device.cpp:17:10:[m[K [01;31m[Kfatal error: [m[Kcv_bridge/cv_bridge.hpp: No existe el archivo o el directorio
+[1.053s]    17 | #include [01;31m[K<cv_bridge/cv_bridge.hpp>[m[K
+[1.053s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.053s] compilation terminated.
+[1.055s] gmake[2]: *** [CMakeFiles/azure_kinect_ros_driver_node.dir/build.make:90: CMakeFiles/azure_kinect_ros_driver_node.dir/src/k4a_ros_device.cpp.o] Error 1
+[1.055s] gmake[2]: *** Se espera a que terminen otras tareas....
+[3.687s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/azure_kinect_ros_driver_node.dir/all] Error 2
+[3.688s] gmake: *** [Makefile:146: all] Error 2
+[3.689s] Invoked command in '/home/felipe/ros2_ws/build/azure_kinect_ros_driver' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/felipe/ros2_ws/build/azure_kinect_ros_driver -- -j12 -l12

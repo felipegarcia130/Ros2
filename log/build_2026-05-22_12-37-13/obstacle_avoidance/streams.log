@@ -1,0 +1,33 @@
+[0.466s] Invoking command in '/home/felipe/ros2_ws/src/obstacle_avoidance': PYTHONPATH=/home/felipe/ros2_ws/build/obstacle_avoidance/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/felipe/ros2_ws/install/obstacle_avoidance/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/obstacle_avoidance build --build-base /home/felipe/ros2_ws/build/obstacle_avoidance/build install --record /home/felipe/ros2_ws/build/obstacle_avoidance/install.log --single-version-externally-managed install_data
+[0.634s] running egg_info
+[0.634s] writing ../../build/obstacle_avoidance/obstacle_avoidance.egg-info/PKG-INFO
+[0.634s] writing dependency_links to ../../build/obstacle_avoidance/obstacle_avoidance.egg-info/dependency_links.txt
+[0.634s] writing entry points to ../../build/obstacle_avoidance/obstacle_avoidance.egg-info/entry_points.txt
+[0.635s] writing requirements to ../../build/obstacle_avoidance/obstacle_avoidance.egg-info/requires.txt
+[0.635s] writing top-level names to ../../build/obstacle_avoidance/obstacle_avoidance.egg-info/top_level.txt
+[0.636s] reading manifest file '../../build/obstacle_avoidance/obstacle_avoidance.egg-info/SOURCES.txt'
+[0.637s] writing manifest file '../../build/obstacle_avoidance/obstacle_avoidance.egg-info/SOURCES.txt'
+[0.637s] running build
+[0.637s] running build_py
+[0.637s] copying obstacle_avoidance/bug1.py -> /home/felipe/ros2_ws/build/obstacle_avoidance/build/lib/obstacle_avoidance
+[0.637s] copying obstacle_avoidance/bug0.py -> /home/felipe/ros2_ws/build/obstacle_avoidance/build/lib/obstacle_avoidance
+[0.637s] copying obstacle_avoidance/bug2.py -> /home/felipe/ros2_ws/build/obstacle_avoidance/build/lib/obstacle_avoidance
+[0.637s] running install
+[0.638s] running install_lib
+[0.638s] copying /home/felipe/ros2_ws/build/obstacle_avoidance/build/lib/obstacle_avoidance/bug1.py -> /home/felipe/ros2_ws/install/obstacle_avoidance/lib/python3.10/site-packages/obstacle_avoidance
+[0.638s] copying /home/felipe/ros2_ws/build/obstacle_avoidance/build/lib/obstacle_avoidance/bug0.py -> /home/felipe/ros2_ws/install/obstacle_avoidance/lib/python3.10/site-packages/obstacle_avoidance
+[0.638s] copying /home/felipe/ros2_ws/build/obstacle_avoidance/build/lib/obstacle_avoidance/bug2.py -> /home/felipe/ros2_ws/install/obstacle_avoidance/lib/python3.10/site-packages/obstacle_avoidance
+[0.639s] byte-compiling /home/felipe/ros2_ws/install/obstacle_avoidance/lib/python3.10/site-packages/obstacle_avoidance/bug1.py to bug1.cpython-310.pyc
+[0.640s] byte-compiling /home/felipe/ros2_ws/install/obstacle_avoidance/lib/python3.10/site-packages/obstacle_avoidance/bug0.py to bug0.cpython-310.pyc
+[0.641s] byte-compiling /home/felipe/ros2_ws/install/obstacle_avoidance/lib/python3.10/site-packages/obstacle_avoidance/bug2.py to bug2.cpython-310.pyc
+[0.641s] running install_data
+[0.641s] running install_egg_info
+[0.643s] removing '/home/felipe/ros2_ws/install/obstacle_avoidance/lib/python3.10/site-packages/obstacle_avoidance-0.0.0-py3.10.egg-info' (and everything under it)
+[0.643s] Copying ../../build/obstacle_avoidance/obstacle_avoidance.egg-info to /home/felipe/ros2_ws/install/obstacle_avoidance/lib/python3.10/site-packages/obstacle_avoidance-0.0.0-py3.10.egg-info
+[0.644s] running install_scripts
+[0.659s] Installing avoider_node script to /home/felipe/ros2_ws/install/obstacle_avoidance/lib/obstacle_avoidance
+[0.659s] Installing bug0 script to /home/felipe/ros2_ws/install/obstacle_avoidance/lib/obstacle_avoidance
+[0.659s] Installing bug1 script to /home/felipe/ros2_ws/install/obstacle_avoidance/lib/obstacle_avoidance
+[0.659s] Installing bug2 script to /home/felipe/ros2_ws/install/obstacle_avoidance/lib/obstacle_avoidance
+[0.659s] writing list of installed files to '/home/felipe/ros2_ws/build/obstacle_avoidance/install.log'
+[0.687s] Invoked command in '/home/felipe/ros2_ws/src/obstacle_avoidance' returned '0': PYTHONPATH=/home/felipe/ros2_ws/build/obstacle_avoidance/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/felipe/ros2_ws/install/obstacle_avoidance/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/obstacle_avoidance build --build-base /home/felipe/ros2_ws/build/obstacle_avoidance/build install --record /home/felipe/ros2_ws/build/obstacle_avoidance/install.log --single-version-externally-managed install_data

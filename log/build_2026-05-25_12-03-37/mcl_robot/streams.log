@@ -1,0 +1,26 @@
+[0.688s] Invoking command in '/home/felipe/ros2_ws/src/mcl_robot': PYTHONPATH=/home/felipe/ros2_ws/build/mcl_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/felipe/ros2_ws/install/mcl_robot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mcl_robot build --build-base /home/felipe/ros2_ws/build/mcl_robot/build install --record /home/felipe/ros2_ws/build/mcl_robot/install.log --single-version-externally-managed install_data
+[0.880s] running egg_info
+[0.880s] writing ../../build/mcl_robot/mcl_robot.egg-info/PKG-INFO
+[0.880s] writing dependency_links to ../../build/mcl_robot/mcl_robot.egg-info/dependency_links.txt
+[0.880s] writing entry points to ../../build/mcl_robot/mcl_robot.egg-info/entry_points.txt
+[0.881s] writing requirements to ../../build/mcl_robot/mcl_robot.egg-info/requires.txt
+[0.881s] writing top-level names to ../../build/mcl_robot/mcl_robot.egg-info/top_level.txt
+[0.883s] reading manifest file '../../build/mcl_robot/mcl_robot.egg-info/SOURCES.txt'
+[0.884s] writing manifest file '../../build/mcl_robot/mcl_robot.egg-info/SOURCES.txt'
+[0.884s] running build
+[0.884s] running build_py
+[0.884s] copying mcl_robot/slam_node.py -> /home/felipe/ros2_ws/build/mcl_robot/build/lib/mcl_robot
+[0.884s] running install
+[0.884s] running install_lib
+[0.885s] copying /home/felipe/ros2_ws/build/mcl_robot/build/lib/mcl_robot/slam_node.py -> /home/felipe/ros2_ws/install/mcl_robot/lib/python3.10/site-packages/mcl_robot
+[0.886s] byte-compiling /home/felipe/ros2_ws/install/mcl_robot/lib/python3.10/site-packages/mcl_robot/slam_node.py to slam_node.cpython-310.pyc
+[0.888s] running install_data
+[0.888s] running install_egg_info
+[0.889s] removing '/home/felipe/ros2_ws/install/mcl_robot/lib/python3.10/site-packages/mcl_robot-0.0.0-py3.10.egg-info' (and everything under it)
+[0.889s] Copying ../../build/mcl_robot/mcl_robot.egg-info to /home/felipe/ros2_ws/install/mcl_robot/lib/python3.10/site-packages/mcl_robot-0.0.0-py3.10.egg-info
+[0.890s] running install_scripts
+[0.910s] Installing astar_node script to /home/felipe/ros2_ws/install/mcl_robot/lib/mcl_robot
+[0.910s] Installing mcl_node script to /home/felipe/ros2_ws/install/mcl_robot/lib/mcl_robot
+[0.910s] Installing slam_node script to /home/felipe/ros2_ws/install/mcl_robot/lib/mcl_robot
+[0.911s] writing list of installed files to '/home/felipe/ros2_ws/build/mcl_robot/install.log'
+[0.959s] Invoked command in '/home/felipe/ros2_ws/src/mcl_robot' returned '0': PYTHONPATH=/home/felipe/ros2_ws/build/mcl_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/felipe/ros2_ws/install/mcl_robot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mcl_robot build --build-base /home/felipe/ros2_ws/build/mcl_robot/build install --record /home/felipe/ros2_ws/build/mcl_robot/install.log --single-version-externally-managed install_data
