@@ -3,6 +3,7 @@
 /home/felipe/ros2_ws/install/mcl_robot/lib/python3.10/site-packages/mcl_robot/odom_node.py
 /home/felipe/ros2_ws/install/mcl_robot/lib/python3.10/site-packages/mcl_robot/__init__.py
 /home/felipe/ros2_ws/install/mcl_robot/lib/python3.10/site-packages/mcl_robot/mcl_node.py
+/home/felipe/ros2_ws/install/mcl_robot/lib/python3.10/site-packages/mcl_robot/gstreamer_node.py
 /home/felipe/ros2_ws/install/mcl_robot/lib/python3.10/site-packages/mcl_robot/exploration_node.py
 /home/felipe/ros2_ws/install/mcl_robot/lib/python3.10/site-packages/mcl_robot/astar_node.py
 /home/felipe/ros2_ws/install/mcl_robot/lib/python3.10/site-packages/mcl_robot/mapa.py
@@ -11,6 +12,7 @@
 /home/felipe/ros2_ws/install/mcl_robot/lib/python3.10/site-packages/mcl_robot/__pycache__/odom_node.cpython-310.pyc
 /home/felipe/ros2_ws/install/mcl_robot/lib/python3.10/site-packages/mcl_robot/__pycache__/__init__.cpython-310.pyc
 /home/felipe/ros2_ws/install/mcl_robot/lib/python3.10/site-packages/mcl_robot/__pycache__/mcl_node.cpython-310.pyc
+/home/felipe/ros2_ws/install/mcl_robot/lib/python3.10/site-packages/mcl_robot/__pycache__/gstreamer_node.cpython-310.pyc
 /home/felipe/ros2_ws/install/mcl_robot/lib/python3.10/site-packages/mcl_robot/__pycache__/exploration_node.cpython-310.pyc
 /home/felipe/ros2_ws/install/mcl_robot/lib/python3.10/site-packages/mcl_robot/__pycache__/astar_node.cpython-310.pyc
 /home/felipe/ros2_ws/install/mcl_robot/lib/python3.10/site-packages/mcl_robot/__pycache__/mapa.cpython-310.pyc
@@ -27,6 +29,7 @@
 /home/felipe/ros2_ws/install/mcl_robot/lib/python3.10/site-packages/mcl_robot-0.0.0-py3.10.egg-info/zip-safe
 /home/felipe/ros2_ws/install/mcl_robot/lib/mcl_robot/astar_node
 /home/felipe/ros2_ws/install/mcl_robot/lib/mcl_robot/exploration_node
+/home/felipe/ros2_ws/install/mcl_robot/lib/mcl_robot/gstreamer_node
 /home/felipe/ros2_ws/install/mcl_robot/lib/mcl_robot/mcl_node
 /home/felipe/ros2_ws/install/mcl_robot/lib/mcl_robot/odom_node
 /home/felipe/ros2_ws/install/mcl_robot/lib/mcl_robot/slam_node

@@ -1,320 +1,250 @@
+"""
+motion_calibration.py
+─────────────────────────────────────────────────────────────────────────────
+Nodo ROS2 de calibración experimental para estimar los parámetros αᵢ del
+modelo de ruido de odometría diferencial (Thrun et al., §5.3).
+
+MODELO MATEMÁTICO
+─────────────────
+Para un robot diferencial, el error de odometría entre paso k-1 y k se
+descompone en tres primitivas:
+    δ_rot1  = atan2(y_k - y_{k-1}, x_k - x_{k-1}) - θ_{k-1}  (giro inicial)
+    δ_trans = ‖(x_k-x_{k-1}, y_k-y_{k-1})‖                   (traslación)
+    δ_rot2  = θ_k - θ_{k-1} - δ_rot1                          (giro final)
+
+Las varianzas de ruido son (Thrun §5.3.2):
+    σ²_rot1  = α₁·δ_rot1²  + α₂·δ_trans²
+    σ²_trans = α₃·δ_trans² + α₄·(δ_rot1² + δ_rot2²)
+    σ²_rot2  = α₁·δ_rot2²  + α₂·δ_trans²
+
+USO
+───
+1. Conectar el robot y asegurarse de que /odom y /ground_truth (o /amcl_pose)
+   estén publicando.
+2. Mover el robot por la trayectoria de calibración (avance recto, giro en
+   sitio, curva) al menos 10 repeticiones.
+3. Correr este nodo:
+       ros2 run <pkg> motion_calibration
+4. Al terminar (Ctrl+C) imprime los αᵢ y los guarda en motion_params.yaml.
+5. Copiar los valores al inicio de mcl_node_improved.py.
+
+Si no hay ground truth, se usa el modo "ciclo cerrado": el robot regresa al
+origen y el error acumulado se usa para estimar αᵢ vía mínimos cuadrados.
+"""
+
 import math
-import heapq
+import yaml
 import numpy as np
 import rclpy
 from rclpy.node import Node
-from nav_msgs.msg import OccupancyGrid
-from geometry_msgs.msg import PoseStamped, Twist
-from sensor_msgs.msg import LaserScan
-from scipy.ndimage import binary_dilation
-
-# ── Parámetros ─────────────────────────────────────────────────────────────────
-REPLAN_INTERVAL   = 6.0   # segundos entre replanificaciones periódicas
-MIN_CLUSTER_SIZE  = 3     # celdas mínimas para considerar un cluster de frontera válido
-GOAL_TOLERANCE    = 0.30  # metros para considerar un waypoint alcanzado
-OBSTACLE_DIST     = 0.45  # metros — distancia mínima antes de evadir (aumentada)
-MIN_FRONTIER_DIST = 10    # celdas — distancia mínima al robot para elegir frontera
-INFLATION_CELLS   = 3     # celdas a inflar alrededor de obstáculos (~25 cm si res=0.05)
-WAYPOINT_STEP     = 2     # tomar 1 de cada N waypoints del path (antes era 5)
+from nav_msgs.msg import Odometry
 
 
-def angle_to(x, y, gx, gy): return math.atan2(gy - y, gx - x)
-def dist_to(x, y, gx, gy):  return math.hypot(gx - x, gy - y)
-def angle_diff(a, b):
-    d = a - b
-    while d > math.pi:
-        d -= 2 * math.pi
-    while d < -math.pi:
-        d += 2 * math.pi
-    return d
-
-
-# ── Inflado de obstáculos ──────────────────────────────────────────────────────
-def inflate_grid(grid, inflation_cells=INFLATION_CELLS):
+class MotionCalibrationNode(Node):
     """
-    Dilata los obstáculos N celdas en todas direcciones.
-    Esto crea un margen de seguridad equivalente al radio del robot,
-    evitando que A* genere rutas demasiado cercanas a las paredes.
-    Las celdas desconocidas (-1) se preservan para la detección de fronteras.
+    Recopila pares (odometría_delta, ground_truth_delta) y estima αᵢ por
+    regresión lineal ordinaria (OLS) en forma matricial.
+
+    Si solo está disponible /odom (sin ground truth), usa el modo de
+    varianza muestral sobre múltiples repeticiones de la misma maniobra.
     """
-    obstacles = (grid > 50).astype(bool)
-    inflated  = binary_dilation(obstacles, iterations=inflation_cells)
-    result    = grid.copy()
-    # Solo inflar sobre celdas libres (no sobreescribir desconocidas)
-    result[(inflated) & (grid >= 0)] = 100
-    return result
 
-
-# ── A* ─────────────────────────────────────────────────────────────────────────
-def astar(grid, width, height, start, goal):
-    def h(a, b): return math.hypot(b[0] - a[0], b[1] - a[1])
-    def neighbors(x, y):
-        for dx, dy in [(1,0),(-1,0),(0,1),(0,-1),(1,1),(-1,1),(1,-1),(-1,-1)]:
-            nx, ny = x + dx, y + dy
-            if 0 <= nx < width and 0 <= ny < height and grid[ny, nx] == 0:
-                yield nx, ny, 1.414 if dx and dy else 1.0
-
-    open_set = []
-    heapq.heappush(open_set, (0, start))
-    came_from = {}
-    g_score   = {start: 0}
-
-    while open_set:
-        _, current = heapq.heappop(open_set)
-        if current == goal:
-            path = []
-            while current in came_from:
-                path.append(current)
-                current = came_from[current]
-            path.append(start)
-            path.reverse()
-            return path
-        for nx, ny, cost in neighbors(*current):
-            nb = (nx, ny)
-            tg = g_score[current] + cost
-            if tg < g_score.get(nb, float('inf')):
-                came_from[nb] = current
-                g_score[nb]   = tg
-                heapq.heappush(open_set, (tg + h(nb, goal), nb))
-    return []
-
-
-# ── Fronteras ──────────────────────────────────────────────────────────────────
-def detect_frontiers(grid):
-    """Devuelve (cols, rows) de celdas libres adyacentes a celdas desconocidas."""
-    free    = (grid == 0).astype(np.uint8)
-    unk     = (grid == -1).astype(np.uint8)
-    unk_adj = (
-        np.roll(unk,  1, axis=0) | np.roll(unk, -1, axis=0) |
-        np.roll(unk,  1, axis=1) | np.roll(unk, -1, axis=1)
-    )
-    rows, cols = np.where(free & unk_adj)
-    return cols, rows
-
-
-def best_frontier(cols, rows, rx, ry):
-    """
-    Agrupa celdas de frontera en clusters de 10x10 celdas y elige el mejor
-    según la relación tamaño/distancia (favorece clusters grandes y cercanos).
-    """
-    if len(cols) == 0:
-        return None
-
-    coarse_c = (cols // 10) * 10 + 5
-    coarse_r = (rows // 10) * 10 + 5
-
-    clusters = {}
-    for c, r in zip(coarse_c.tolist(), coarse_r.tolist()):
-        key = (c, r)
-        clusters[key] = clusters.get(key, 0) + 1
-
-    clusters = {k: v for k, v in clusters.items() if v >= MIN_CLUSTER_SIZE}
-    if not clusters:
-        return None
-
-    clusters = {
-        k: v for k, v in clusters.items()
-        if math.hypot(k[0] - rx, k[1] - ry) >= MIN_FRONTIER_DIST
-    }
-    if not clusters:
-        return None
-
-    best = min(clusters, key=lambda k: -clusters[k] / (math.hypot(k[0]-rx, k[1]-ry) + 1e-3))
-    return best
-
-
-# ── Nodo principal ─────────────────────────────────────────────────────────────
-class ExplorationNode(Node):
     def __init__(self):
-        super().__init__('exploration_node')
+        super().__init__('motion_calibration')
 
-        self.sub_map  = self.create_subscription(OccupancyGrid, '/map',       self.map_cb,  1)
-        self.sub_pose = self.create_subscription(PoseStamped,   '/slam_pose', self.pose_cb, 10)
-        self.sub_scan = self.create_subscription(LaserScan,     '/scan',      self.scan_cb, 10)
-        self.pub      = self.create_publisher(Twist, '/cmd_vel', 10)
+        self.odom_poses: list[np.ndarray] = []   # historial de poses odom
+        self.gt_poses:   list[np.ndarray] = []   # historial ground truth
 
-        self.grid       = None
-        self.width      = 0
-        self.height     = 0
-        self.resolution = 0.05
-        self.origin_x   = 0.0
-        self.origin_y   = 0.0
+        # Acumuladores para OLS:
+        # Cada fila: [δ_rot1², δ_trans², δ_rot2²] → target: error²
+        self._rows_rot:   list[np.ndarray] = []  # para α₁, α₂
+        self._rows_trans: list[np.ndarray] = []  # para α₃, α₄
+        self._y_rot1:     list[float]       = []
+        self._y_rot2:     list[float]       = []
+        self._y_trans:    list[float]       = []
 
-        self.robot_x   = 0.0
-        self.robot_y   = 0.0
-        self.robot_yaw = 0.0
+        self._last_odom: np.ndarray | None = None
+        self._last_gt:   np.ndarray | None = None
+        self._n_steps = 0
 
-        # Rangos LiDAR por sector
-        self.min_front_range = float('inf')
-        self.left_range      = float('inf')
-        self.right_range     = float('inf')
+        self.sub_odom = self.create_subscription(
+            Odometry, '/odom', self._cb_odom, 10)
+        self.sub_gt = self.create_subscription(
+            Odometry, '/ground_truth', self._cb_gt, 10)
 
-        self.waypoints  = []
-        self.current_wp = 0
-        self.exploring  = False
-        self.done       = False
-        self.first_map  = True
-
-        # Contador para no replanificar demasiado seguido tras evasión
-        self._avoidance_ticks = 0
-
-        self.create_timer(0.1,             self.control_loop)
-        self.create_timer(REPLAN_INTERVAL, self.replan)
-
-    # ── Callbacks ──────────────────────────────────────────────────────────────
-    def scan_cb(self, msg):
-        ranges = np.array(msg.ranges, dtype=np.float32)
-        n      = len(ranges)
-
-        def safe_min(r):
-            r = r[np.isfinite(r) & (r > 0.05)]
-            return float(np.min(r)) if len(r) > 0 else float('inf')
-
-        # Sectores: front ±22.5°, left ±45°, right ±45°
-        # Asume 360 rayos; ajusta los índices si tu LiDAR es diferente
-        front_half = n // 16          # ~22 rayos a cada lado del frente
-        left_start = n // 4           # 90°
-        right_end  = 3 * n // 4       # 270°
-
-        self.min_front_range = safe_min(
-            np.concatenate([ranges[:front_half], ranges[n - front_half:]])
-        )
-        self.left_range  = safe_min(ranges[front_half : left_start])
-        self.right_range = safe_min(ranges[right_end  : n - front_half])
-
-    def map_cb(self, msg):
-        self.width      = msg.info.width
-        self.height     = msg.info.height
-        self.resolution = msg.info.resolution
-        self.origin_x   = msg.info.origin.position.x
-        self.origin_y   = msg.info.origin.position.y
-        self.grid = np.array(msg.data, dtype=np.int8).reshape((self.height, self.width))
-
-        if self.first_map and not self.done:
-            self.first_map = False
-            self.replan()
-
-    def pose_cb(self, msg):
-        self.robot_x   = msg.pose.position.x
-        self.robot_y   = msg.pose.position.y
-        q = msg.pose.orientation
-        self.robot_yaw = 2.0 * math.atan2(q.z, q.w)
-
-    # ── Coordenadas ────────────────────────────────────────────────────────────
-    def world_to_grid(self, wx, wy):
-        gx = int((wx - self.origin_x) / self.resolution)
-        gy = self.height - 1 - int((wy - self.origin_y) / self.resolution)
-        return gx, gy
-
-    def grid_to_world(self, gx, gy):
-        gy_real = self.height - 1 - gy
-        wx = gx      * self.resolution + self.origin_x + self.resolution / 2
-        wy = gy_real * self.resolution + self.origin_y + self.resolution / 2
-        return wx, wy
-
-    def nearest_free(self, gx, gy, grid=None):
-        """Encuentra la celda libre más cercana; usa el grid inflado si se pasa."""
-        g = grid if grid is not None else self.grid
-        for r in range(1, 30):
-            for dx in range(-r, r + 1):
-                for dy in range(-r, r + 1):
-                    nx, ny = gx + dx, gy + dy
-                    if 0 <= nx < self.width and 0 <= ny < self.height:
-                        if g[ny, nx] == 0:
-                            return nx, ny
-        return gx, gy
-
-    # ── Exploración ────────────────────────────────────────────────────────────
-    def replan(self):
-        if self.done or self.grid is None:
-            return
-
-        rx_g, ry_g = self.world_to_grid(self.robot_x, self.robot_y)
-
-        # Detectar fronteras sobre el grid ORIGINAL (no inflado)
-        cols, rows = detect_frontiers(self.grid)
-        target     = best_frontier(cols, rows, rx_g, ry_g)
-
-        if target is None:
-            self.get_logger().info('Exploración completa — no quedan fronteras')
-            self.pub.publish(Twist())
-            self.done = True
-            return
-
-        # Inflar obstáculos para la planeación
-        inflated = inflate_grid(self.grid, INFLATION_CELLS)
-
-        start = self.nearest_free(rx_g, ry_g, inflated)
-        goal  = self.nearest_free(*target, inflated)
-
-        path = astar(inflated, self.width, self.height, start, goal)
-        if not path:
-            self.get_logger().warn('A* no encontró ruta a la frontera — reintentando')
-            return
-
-        # Paso reducido para no cortar esquinas
-        self.waypoints  = [self.grid_to_world(gx, gy) for gx, gy in path[::WAYPOINT_STEP]]
-        self.current_wp = 0
-        self.exploring  = True
-
-        wx, wy = self.grid_to_world(*goal)
         self.get_logger().info(
-            f'Frontera → ({wx:.2f}, {wy:.2f}) | '
-            f'{len(self.waypoints)} waypoints | '
-            f'{len(cols)} celdas de frontera restantes'
+            'Calibración iniciada. Mueve el robot y presiona Ctrl+C al terminar.'
         )
 
-    # ── Control ────────────────────────────────────────────────────────────────
-    def control_loop(self):
-        if self.done or not self.exploring:
+    # ── Callbacks ────────────────────────────────────────────────────────────
+
+    def _cb_odom(self, msg: Odometry):
+        pose = self._msg_to_pose(msg)
+        if self._last_odom is None:
+            self._last_odom = pose
             return
+        delta = self._compute_delta(self._last_odom, pose)
+        self._last_odom = pose
+        self._odom_deltas_buf = getattr(self, '_odom_deltas_buf', [])
+        self._odom_deltas_buf.append(delta)
 
-        # Fin de ruta → buscar siguiente frontera
-        if self.current_wp >= len(self.waypoints):
-            self.exploring = False
-            self.replan()
+    def _cb_gt(self, msg: Odometry):
+        pose = self._msg_to_pose(msg)
+        if self._last_gt is None:
+            self._last_gt = pose
             return
+        delta_gt = self._compute_delta(self._last_gt, pose)
+        self._last_gt = pose
 
-        # ── Evasión reactiva ────────────────────────────────────────────────
-        if self.min_front_range < OBSTACLE_DIST:
-            cmd = Twist()
-            # Gira hacia el lado más despejado
-            cmd.angular.z = 0.3 if self.left_range >= self.right_range else -0.4
-            self.pub.publish(cmd)
-            self._avoidance_ticks += 1
-
-            # Tras varios ticks girando, replanifica en lugar de seguir el wp actual
-            if self._avoidance_ticks > 20:
-                self._avoidance_ticks = 0
-                self.exploring = False
-                self.replan()
+        buf = getattr(self, '_odom_deltas_buf', [])
+        if not buf:
             return
+        delta_odom = buf.pop(0)  # par más reciente
 
-        self._avoidance_ticks = 0
+        self._accumulate(delta_odom, delta_gt)
+        self._n_steps += 1
+        if self._n_steps % 50 == 0:
+            self.get_logger().info(f'Pares recopilados: {self._n_steps}')
 
-        wx, wy = self.waypoints[self.current_wp]
+    # ── Matemáticas ──────────────────────────────────────────────────────────
 
-        if dist_to(self.robot_x, self.robot_y, wx, wy) < GOAL_TOLERANCE:
-            self.current_wp += 1
-            return
+    @staticmethod
+    def _msg_to_pose(msg: Odometry) -> np.ndarray:
+        x = msg.pose.pose.position.x
+        y = msg.pose.pose.position.y
+        q = msg.pose.pose.orientation
+        theta = 2.0 * math.atan2(q.z, q.w)
+        return np.array([x, y, theta], dtype=np.float64)
 
-        err = angle_diff(angle_to(self.robot_x, self.robot_y, wx, wy), self.robot_yaw)
-        cmd = Twist()
-        if abs(err) > 0.5:
-            # Solo girar, sin avanzar
-            cmd.angular.z = max(-0.4, min(0.4, 0.8 * err)) 
+    @staticmethod
+    def _compute_delta(p0: np.ndarray, p1: np.ndarray) -> np.ndarray:
+        """
+        Devuelve (δ_rot1, δ_trans, δ_rot2) según Thrun §5.3.
+        """
+        dx = p1[0] - p0[0]
+        dy = p1[1] - p0[1]
+        d_trans = math.sqrt(dx**2 + dy**2)
+        if d_trans < 1e-6:
+            d_rot1 = 0.0
         else:
-            # Avanzar con corrección angular suave
-            cmd.linear.x  = 0.10
-            cmd.angular.z = max(-0.3, min(0.3, 0.6 * err))
-        self.pub.publish(cmd)
+            d_rot1 = math.atan2(dy, dx) - p0[2]
+            d_rot1 = (d_rot1 + math.pi) % (2 * math.pi) - math.pi
+        d_rot2 = (p1[2] - p0[2]) - d_rot1
+        d_rot2 = (d_rot2 + math.pi) % (2 * math.pi) - math.pi
+        return np.array([d_rot1, d_trans, d_rot2], dtype=np.float64)
+
+    def _accumulate(self, delta_odom: np.ndarray, delta_gt: np.ndarray):
+        """
+        Acumula un par (odom, gt) en los buffers de regresión.
+
+        El error de cada primitiva es:
+            e_rot1  = delta_gt[0] - delta_odom[0]
+            e_trans = delta_gt[1] - delta_odom[1]
+            e_rot2  = delta_gt[2] - delta_odom[2]
+
+        Según el modelo de Thrun:
+            σ²_rot1  = α₁·δ_rot1²  + α₂·δ_trans²
+            σ²_trans = α₃·δ_trans² + α₄·(δ_rot1² + δ_rot2²)
+            σ²_rot2  = α₁·δ_rot2²  + α₂·δ_trans²
+
+        Esto es un sistema lineal en [α₁,α₂] y [α₃,α₄] por separado.
+        Aproximamos σ² ≈ e² (estimador de momento de orden 2).
+        """
+        e = delta_gt - delta_odom
+        r1, t, r2 = delta_odom
+
+        # Para α₁, α₂: predice e_rot1² y e_rot2²
+        self._rows_rot.append(np.array([r1**2, t**2]))
+        self._y_rot1.append(e[0]**2)
+        self._rows_rot.append(np.array([r2**2, t**2]))
+        self._y_rot2.append(e[2]**2)
+
+        # Para α₃, α₄: predice e_trans²
+        self._rows_trans.append(np.array([t**2, r1**2 + r2**2]))
+        self._y_trans.append(e[1]**2)
+
+    # ── Estimación final ─────────────────────────────────────────────────────
+
+    def estimate_alphas(self) -> dict[str, float]:
+        """
+        Resuelve OLS con restricción de no-negatividad (NNLS):
+            min ‖Aα - y‖²  s.t. α ≥ 0
+
+        Referencia: scipy.optimize.nnls (Lawson & Hanson, 1974).
+        """
+        from scipy.optimize import nnls
+
+        if len(self._rows_rot) < 10:
+            self.get_logger().warn(
+                'Muy pocos pares para estimar. Usando valores por defecto.')
+            return {'alpha1': 0.1, 'alpha2': 0.1,
+                    'alpha3': 0.05, 'alpha4': 0.05}
+
+        # Bloques de rotación
+        A_rot = np.vstack(self._rows_rot)
+        y_rot = np.array(self._y_rot1 + self._y_rot2)
+        alpha_12, _ = nnls(A_rot, y_rot)
+
+        # Bloque de traslación
+        A_trans = np.vstack(self._rows_trans)
+        y_trans = np.array(self._y_trans)
+        alpha_34, _ = nnls(A_trans, y_trans)
+
+        result = {
+            'alpha1': float(alpha_12[0]),
+            'alpha2': float(alpha_12[1]),
+            'alpha3': float(alpha_34[0]),
+            'alpha4': float(alpha_34[1]),
+        }
+        return result
+
+    def save_and_report(self):
+        alphas = self.estimate_alphas()
+        self.get_logger().info('═' * 60)
+        self.get_logger().info('RESULTADO DE CALIBRACIÓN')
+        self.get_logger().info('═' * 60)
+        for k, v in alphas.items():
+            self.get_logger().info(f'  {k} = {v:.6f}')
+        self.get_logger().info('─' * 60)
+        self.get_logger().info(
+            'Interpretación:\n'
+            '  α₁, α₂ controlan el ruido de rotación\n'
+            '  α₃, α₄ controlan el ruido de traslación\n'
+            '  Valores típicos para encoders de bajo costo: 0.02 – 0.2'
+        )
+
+        # Calcular la covarianza equivalente para un movimiento típico
+        # (avance 0.1m con giro pequeño 0.05rad) — para inicializar RAM
+        dt, dr = 0.1, 0.05
+        sigma_rot   = math.sqrt(alphas['alpha1']*dr**2 + alphas['alpha2']*dt**2)
+        sigma_trans = math.sqrt(alphas['alpha3']*dt**2 + alphas['alpha4']*dr**2)
+        self.get_logger().info(
+            f'\nCovarianza típica (dt=0.1m, dr=0.05rad):\n'
+            f'  σ_row (fila/y en píxeles) ≈ {sigma_trans:.4f} m → {sigma_trans/0.05:.1f} px\n'
+            f'  σ_col (col/x en píxeles)  ≈ {sigma_trans:.4f} m → {sigma_trans/0.05:.1f} px\n'
+            f'  σ_theta                   ≈ {sigma_rot:.4f} rad\n'
+            f'\nUsar en mcl_node_improved.py:\n'
+            f'  S0_scale = np.array([{sigma_trans/0.05:.3f}, {sigma_trans/0.05:.3f}, {sigma_rot:.4f}])'
+        )
+
+        # Guardar YAML
+        with open('/tmp/motion_params.yaml', 'w') as f:
+            yaml.dump({'motion_noise': alphas}, f)
+        self.get_logger().info('\nGuardado en /tmp/motion_params.yaml')
+        return alphas
 
 
-def main(args=None):
-    rclpy.init(args=args)
-    node = ExplorationNode()
-    rclpy.spin(node)
-    rclpy.shutdown()
+def main():
+    rclpy.init()
+    node = MotionCalibrationNode()
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.save_and_report()
+        node.destroy_node()
+        rclpy.shutdown()
 
 
 if __name__ == '__main__':

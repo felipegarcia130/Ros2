@@ -14,6 +14,7 @@ mcl_robot/__init__.py
 mcl_robot/astar_node.py
 mcl_robot/exploration_node.py
 mcl_robot/extraer.py
+mcl_robot/gstreamer_node.py
 mcl_robot/mapa.py
 mcl_robot/mcl_node.py
 mcl_robot/odom_node.py

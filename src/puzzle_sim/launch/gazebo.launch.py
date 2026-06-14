@@ -23,11 +23,6 @@ def generate_launch_description():
             parameters=[{'robot_description': robot_desc, 'use_sim_time': True}]
         ),
         Node(
-            package='joint_state_publisher',
-            executable='joint_state_publisher',
-            parameters=[{'use_sim_time': True}]
-        ),
-        Node(
             package='gazebo_ros',
             executable='spawn_entity.py',
             arguments=['-topic', 'robot_description', '-entity', 'puzzlebot',

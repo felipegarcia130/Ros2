@@ -33,6 +33,7 @@ setup(
             'slam_node =mcl_robot.slam_node:main',
             'exploration_node= mcl_robot.exploration_node:main',
             'odom_node=mcl_robot.odom_node:main',
+            'gstreamer_node = mcl_robot.gstreamer_node:main',
         ],
     },
 )
